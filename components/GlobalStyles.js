@@ -9,6 +9,9 @@ const GlobalStyles = () => (
           font-family: "Open Sans", sans-serif;
           box-sizing: border-box;
         }
+        b, strong {
+          font-weight: 600;
+        }
       `}
     />
   </>

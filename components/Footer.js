@@ -53,7 +53,7 @@ function Footer() {
           <br />
           <strong>E</strong>
           &nbsp;
-          <a href="mailto:info@doxat.ba">doxat@bih.net.ba</a>
+          <a href="mailto:doxat@bih.net.ba">doxat@bih.net.ba</a>
           <br />
         </div>
       </footer>
@@ -74,6 +74,9 @@ const FooterStyled = styled.div`
     margin-right: auto;
     flex-basis: 100%;
     /* flex-shrink: 0; */
+  }
+  b{
+    font-weight: 600;
   }
 
   // flex grow shrink basis
