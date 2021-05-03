@@ -35,7 +35,7 @@ function Footer() {
         </div>
         <div>
           <address>
-            Fadil-Paše Šerifovića,
+            Fadil-Paše Šerifovića 6b,
             <br />
             Sarajevo 71000,
             <br />
@@ -53,7 +53,7 @@ function Footer() {
           <br />
           <strong>E</strong>
           &nbsp;
-          <a href="mailto:info@doxat.ba">info@doxat.ba</a>
+          <a href="mailto:info@doxat.ba">doxat@bih.net.ba</a>
           <br />
         </div>
       </footer>

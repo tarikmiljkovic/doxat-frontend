@@ -129,6 +129,7 @@ function Main() {
           </Link>
           <Link href="/kontakt" locale={router.locale == "bs" ? "en" : "bs"}>
             <a class="nav__listitem">
+              <IoLanguageOutline />
               {router.locale == "bs" ? " EN" : " BS"}
             </a>
           </Link>
