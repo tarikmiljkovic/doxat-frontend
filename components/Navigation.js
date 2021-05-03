@@ -116,7 +116,7 @@ function Main() {
           </Link>
           <Link href="/software" locale={router.locale}>
             <li class="nav__listitem">
-              Softver
+              {t.software}
               {/* <ul class="nav__listitemdrop">
               <li>Svi</li>
               <li>Izvedeno</li>
@@ -125,11 +125,11 @@ function Main() {
             </li>
           </Link>
           <Link href="/kontakt" locale={router.locale}>
-            <li class="nav__listitem">Kontakt</li>
+            <li class="nav__listitem">{t.software}</li>
           </Link>
           <Link href="/kontakt" locale={router.locale == "bs" ? "en" : "bs"}>
             <a class="nav__listitem">
-              {router.locale == "bs" ? " EN" : " BiH"}
+              {router.locale == "bs" ? " EN" : " BS"}
             </a>
           </Link>
         </ul>
