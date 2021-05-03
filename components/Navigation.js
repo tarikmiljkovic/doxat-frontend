@@ -45,9 +45,9 @@ function Main() {
 
   return (
     <MainStyled visible={visible}>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__listlogo">
+      <nav className="nav">
+        <ul className="nav__list">
+          <li className="nav__listlogo">
             <svg
               version="1.1"
               id="Layer_1"
@@ -97,27 +97,25 @@ function Main() {
           </li>
           <Link href="/o-nama" locale={router.locale}>
             <a
-              class="nav__listitem"
               className={
                 router.pathname == "/o-nama" || router.pathname == "/about"
-                  ? "bold"
-                  : ""
+                  ? "bold nav__listitem"
+                  : "nav__listitem"
               }
             >
               {t.aboutus}
             </a>
           </Link>
           <Link href="projekti">
-            <li
-              class="nav__listitem"
+            <a
               className={
                 router.pathname == "/projekti" || router.pathname == "/projects"
-                  ? "bold"
-                  : ""
+                  ? "bold nav__listitem"
+                  : "nav__listitem"
               }
             >
               {t.projects}
-              <ul class="nav__listitemdrop">
+              <ul className="nav__listitemdrop">
                 <Link href="/projekti" locale={router.locale}>
                   <a onClick={() => setCategory("svi")}>Svi</a>
                 </Link>
@@ -128,12 +126,15 @@ function Main() {
                   <a onClick={() => setCategory("izvedeno")}>Ideja</a>
                 </Link>
               </ul>
-            </li>
+            </a>
           </Link>
           <Link href="/software" locale={router.locale}>
             <a
-              class="nav__listitem"
-              className={router.pathname == "/software" ? "bold" : ""}
+              className={
+                router.pathname == "/software"
+                  ? "bold nav__listitem"
+                  : "nav__listitem"
+              }
             >
               {t.software}
               {/* <ul class="nav__listitemdrop">
@@ -145,11 +146,10 @@ function Main() {
           </Link>
           <Link href="/kontakt" locale={router.locale}>
             <a
-              class="nav__listitem"
               className={
                 router.pathname == "/kontakt" || router.pathname == "/contact"
-                  ? "bold"
-                  : ""
+                  ? "bold nav__listitem"
+                  : "nav__listitem"
               }
             >
               {t.contact}
@@ -159,7 +159,7 @@ function Main() {
             href={router.asPath}
             locale={router.locale == "bs" ? "en" : "bs"}
           >
-            <a class="nav__listitem">
+            <a className="nav__listitem">
               <IoLanguageOutline />
               {router.locale == "bs" ? " EN" : " BS"}
             </a>
@@ -175,6 +175,10 @@ const MainStyled = styled.div`
 
   /* color variables */
   /* border radius */
+  *{
+    list-style:none;
+    list-style-type:none;
+  }
   *,
   *::before,
   *::after {
@@ -224,7 +228,7 @@ const MainStyled = styled.div`
     fill: black;
   }
   .nav__listitem {
-    list-style: none;
+    list-style-type: none;
     font-weight: bold;
     position: relative;
     padding: 1.5rem 1rem;
