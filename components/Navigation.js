@@ -178,11 +178,12 @@ const MainStyled = styled.div`
   }
   .nav__listlogo svg {
     width: 8rem;
-    transition: fill 250ms ease-in;
+    transition: fill 100ms ease-in;
   }
   .nav__listlogo svg:hover,
   .nav__listlogo svg:focus {
-    fill: #f06292;
+    /* fill: #f06292; */
+    fill: black;
   }
   .nav__listitem {
     list-style: none;
