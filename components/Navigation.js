@@ -107,7 +107,7 @@ function Main() {
             </a>
           </Link>
           <Link href="projekti">
-            <a
+            <li
               className={
                 router.pathname == "/projekti" || router.pathname == "/projects"
                   ? "bold nav__listitem"
@@ -126,7 +126,7 @@ function Main() {
                   <a onClick={() => setCategory("izvedeno")}>Ideja</a>
                 </Link>
               </ul>
-            </a>
+            </li>
           </Link>
           <Link href="/software" locale={router.locale}>
             <a
@@ -284,6 +284,40 @@ const MainStyled = styled.div`
   .nav__listitemdrop li:hover,
   .nav__listitemdrop li:focus {
   }
+@media only screen and (max-width: 600px) {
+  nav{
+    flex-wrap: wrap;
+  }
+  .nav__list{
+    width: 100%;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+  .nav__listlogo{
+    width: 100%;
+  }
+  .nav__listitem{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+    .nav__listitem::after {
+    content: "";
+    width: 0;
+    height: 0rem;
+    border-radius: 0;
+  }
+  .nav__listitem:hover::after,
+  .nav__listitem:focus::after {
+    width: 0;
+  }
+  .nav__listitem:hover ul,
+  .nav__listitem:focus ul {
+    opacity: 0;
+
+  }
+}
+
 `;
 
 export default Main;

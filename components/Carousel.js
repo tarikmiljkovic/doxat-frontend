@@ -38,7 +38,7 @@ function Carousel() {
 
   return (
     <CarouselStyled visible={visible}>
-      <div class="easee">
+      <div className="easee">
 
           <div className="container">
             <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
