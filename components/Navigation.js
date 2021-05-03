@@ -152,14 +152,12 @@ const MainStyled = styled.div`
   }
   body {
     /* font-family: Montserrat, sans-serif; */
-
   }
-  a:link{
+  a:link {
     text-decoration: none;
     font-weight: normal;
   }
   .nav {
-
     width: 100%;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -191,12 +189,12 @@ const MainStyled = styled.div`
     position: relative;
     padding: 1.5rem 1rem;
     cursor: pointer;
-    font-weight: normal;
+    font-weight: 400;
   }
   .nav__listitem::after {
     content: "";
     width: 0;
-    height: 0.1rem;
+    height: 0.2rem;
     border-radius: 0;
     position: absolute;
     left: 1rem;
@@ -227,7 +225,7 @@ const MainStyled = styled.div`
     gap: 0.5rem;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 200ms ease-in-out;
+    transition: opacity 100ms ease-in-out;
     z-index: 999;
   }
   .nav__listitemdrop li {
@@ -239,10 +237,8 @@ const MainStyled = styled.div`
   }
   .nav__listitemdrop li:hover,
   .nav__listitemdrop li:focus {
-    font-weight: bold;
+    font-weight: normal;
   }
-
-
 `;
 
 export default Main;
