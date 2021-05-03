@@ -127,16 +127,3 @@ export async function getServerSideProps(context) {
     // revalidate: 60,
   };
 }
-
-
-// export async function getStaticPaths({context,locale}) {
-//   const res = await fetch(`${API_URL}/Projektis`);
-//   const result = await res.json();
-//   const paths = result.map((projekt) => ({
-//     params: {
-//       id: projekt.id.toString()
-//     },
-//   }));
-
-//   return { paths, fallback: false };
-// }

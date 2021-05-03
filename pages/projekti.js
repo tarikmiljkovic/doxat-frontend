@@ -32,7 +32,7 @@ export default function Home({ projekti }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // set context locale, default.
   // console.log(context.locale);
 
