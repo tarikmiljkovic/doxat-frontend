@@ -29,7 +29,7 @@ function Main() {
   const {locale} =router;
   const t= locale === 'bs'?bs:en;
 
-  // console.log(router);
+  console.log(router);
 
   useEffect(() => {
   function myFunction() {
@@ -96,10 +96,26 @@ function Main() {
             </svg>
           </li>
           <Link href="/o-nama" locale={router.locale}>
-            <a class="nav__listitem">{t.aboutus}</a>
+            <a
+              class="nav__listitem"
+              className={
+                router.pathname == "/o-nama" || router.pathname == "/about"
+                  ? "bold"
+                  : ""
+              }
+            >
+              {t.aboutus}
+            </a>
           </Link>
           <Link href="projekti">
-            <li class="nav__listitem">
+            <a
+              class="nav__listitem"
+              className={
+                router.pathname == "/projekti" || router.pathname == "/projects"
+                  ? "bold"
+                  : ""
+              }
+            >
               {t.projects}
               <ul class="nav__listitemdrop">
                 <Link href="/projekti" locale={router.locale}>
@@ -112,22 +128,37 @@ function Main() {
                   <a onClick={() => setCategory("izvedeno")}>Ideja</a>
                 </Link>
               </ul>
-            </li>
+            </a>
           </Link>
           <Link href="/software" locale={router.locale}>
-            <li class="nav__listitem">
+            <a
+              class="nav__listitem"
+              className={router.pathname == "/software" ? "bold" : ""}
+            >
               {t.software}
               {/* <ul class="nav__listitemdrop">
               <li>Svi</li>
               <li>Izvedeno</li>
               <li>Ideja</li>
             </ul> */}
-            </li>
+            </a>
           </Link>
           <Link href="/kontakt" locale={router.locale}>
-            <li class="nav__listitem">{t.software}</li>
+            <a
+              class="nav__listitem"
+              className={
+                router.pathname == "/kontakt" || router.pathname == "/contact"
+                  ? "bold"
+                  : ""
+              }
+            >
+              {t.contact}
+            </a>
           </Link>
-          <Link href="/kontakt" locale={router.locale == "bs" ? "en" : "bs"}>
+          <Link
+            href={router.asPath}
+            locale={router.locale == "bs" ? "en" : "bs"}
+          >
             <a class="nav__listitem">
               <IoLanguageOutline />
               {router.locale == "bs" ? " EN" : " BS"}
@@ -156,7 +187,9 @@ const MainStyled = styled.div`
   }
   a:link {
     text-decoration: none;
-    font-weight: normal;
+  }
+  .bold {
+    font-weight: 600;
   }
   .nav {
     width: 100%;
@@ -234,11 +267,9 @@ const MainStyled = styled.div`
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
     transition: background-color 100ms ease-in-out;
-    font-weight: normal;
   }
   .nav__listitemdrop li:hover,
   .nav__listitemdrop li:focus {
-    font-weight: normal;
   }
 `;
 
