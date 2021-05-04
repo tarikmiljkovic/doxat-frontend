@@ -223,14 +223,14 @@ const MainStyled = styled.div`
     height: 0.2rem;
     border-radius: 0;
     position: absolute;
-    left: 1rem;
+    left: 0.625rem;
     bottom: 0.8rem;
     background-color: black;
     transition: width 100ms ease-in;
   }
   .nav__listitem:hover::after,
   .nav__listitem:focus::after {
-    width: 60%;
+    width: 85%;
   }
   .nav__listitem:hover ul,
   .nav__listitem:focus ul {
