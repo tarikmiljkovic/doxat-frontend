@@ -15,8 +15,7 @@ function Header(){
 
 const HeaderStyled = styled.header`
   background-color: ${(props) => props.theme.colors.primary};
-  font-family: Arial;
-  padding: 20px;
+
 `;
 
 

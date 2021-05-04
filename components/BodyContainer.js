@@ -24,8 +24,14 @@ const BodyStyled = styled.div`
     margin: 0 auto;
     padding: 0 0.625rem;
     transform: translateY(${(props) => (props.visible ? "0vh" : "-100vh")});
+
     height: 0;
-    transition: all 1.5s ease-in;
+
+    transition-duration: 1s;
+    transition-delay: 0.6s;
+    opacity: 1;
+    /* transform: translateY(-100%) scale(0.9); */
+    /* opacity: 0; */
   }
 `;
 

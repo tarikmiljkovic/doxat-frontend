@@ -5,12 +5,17 @@ import Link from "next/link";
 import { useContext } from "react";
 import SiteContext from "../contexts/SiteContext";
 import { useRouter } from "next/router";
-import { MdChevronRight, MdChevronLeft, MdNavigateNext } from "react-icons/md";
+import {
+  MdChevronRight,
+  MdChevronLeft,
+  MdNavigateNext,
+} from "react-icons/md";
 // import PropChangeWatch from './Carou';
 import React from "react";
 
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import { setLocale } from 'faker';
 
 
 
@@ -29,6 +34,36 @@ function Carousel() {
      "images/doxat-3.jpg",
    ];
 
+     const properties = {
+       duration: 5000,
+       transitionDuration: 500,
+       easing: "ease-out",
+       infinite: true,
+       prevArrow: (
+         <MdChevronLeft
+           style={{
+             width: "5rem",
+             height: "5rem",
+             marginRight: "-5rem",
+             fill: "white",
+             position: "absolute",
+             left: "2rem",
+           }}
+         />
+       ),
+       nextArrow: (
+         <MdChevronRight
+           style={{
+             width: "5rem",
+             height: "5rem",
+             marginLeft: "-5rem",
+             fill: "white",
+             position: "absolute",
+             right: "2rem",
+           }}
+         />
+       ),
+     };
 
   useEffect(() => {
 
@@ -38,18 +73,16 @@ function Carousel() {
 
   return (
     <CarouselStyled visible={visible}>
-      <div className="easee">
+      <div className="slideDown">
+        <div className="container">
+          <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
+            <a className="mylogo">
+              <img src="/logo.svg" alt="Doxat" />
+            </a>
+          </Link>
+        </div>
 
-          <div className="container">
-            <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
-              <a className="mylogo">
-                <img src="/logo.svg" alt="Doxat" />
-              </a>
-            </Link>
-          </div>
-
-
-        <Slide easing="ease">
+        <Slide {...properties}>
           <div className="each-slide">
             <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
           </div>
@@ -71,6 +104,9 @@ const CarouselStyled = styled.div`
   * {
     box-sizing: border-box;
   }
+  .parent {
+    position: relative;
+  }
   .container {
     max-width: 1170px;
 
@@ -90,10 +126,15 @@ const CarouselStyled = styled.div`
     background-size: cover;
     height: 100vh;
   }
-  .easee {
+  .slideDown {
     transform: translateY(${(props) => (props.visible ? "0vh" : "-100vh")});
-    transition: all 1.5s ease-in;
+
+ //scale to 0.9
+
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-duration: 1.2s;
     height: 100vh;
+    opacity: ${(props) => (props.visible ? 1 : 0)};
   }
   .each-slide span {
     padding: 40px;
@@ -122,7 +163,7 @@ const CarouselStyled = styled.div`
     left: 0;
     top: 0;
     margin-top: 3%;
-    height: 2.2rem;
+    height: 2.5rem;
     z-index: 999;
     width: 270px;
   }
