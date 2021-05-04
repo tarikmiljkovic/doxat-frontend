@@ -48,6 +48,7 @@ export async function getStaticProps(context) {
 
   return {
     props: { projekti },
+    revalidate: 1,
   };
 }
 
