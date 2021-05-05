@@ -36,7 +36,10 @@ export default function Projekt({ result, requestJ, currentProjectIndex, nextPro
     <>
       <ContextWrapper>
         <BodyContainer>
-          <Navigation />
+          <Navigation
+            requestJ={requestJ}
+            currentProjectIndex={currentProjectIndex}
+          />
 
           <BodyWrapper>
             <div>
@@ -102,44 +105,43 @@ export default function Projekt({ result, requestJ, currentProjectIndex, nextPro
 
 const { publicRuntimeConfig } = getConfig();
 
+// Get Current Project with current ID
 export async function getServerSideProps(context) {
   const res = await fetch(
     `${publicRuntimeConfig.API_URL}/Projektis/${context.params.id.toString()}`
   );
   const result = await res.json();
 
+  // Get next and prev
   let request = {};
-
-  if(context.locale =='bs'){
-     request = await fetch(`${publicRuntimeConfig.API_URL}/Projektis/`);
-  }else{
-     request = await fetch(
+  if (context.locale == "bs") {
+    request = await fetch(`${publicRuntimeConfig.API_URL}/Projektis/`);
+  } else {
+    request = await fetch(
       `${publicRuntimeConfig.API_URL}/Projektis?_locale=en`
     );
   }
-  console.log(context.params.id);
-
   let requestJ = await request.json();
 
   // console.log(context.params.id);
-  let currentProjectIndex = requestJ.findIndex((elem) => elem.id == context.params.id);
+  let currentProjectIndex = requestJ.findIndex(
+    (elem) => elem.id == context.params.id
+  );
   console.log(currentProjectIndex);
 
-  let nextProjectIndex = requestJ[currentProjectIndex +1] == undefined
-    ? 1
-    : currentProjectIndex + 1;
-    console.log(nextProjectIndex);
+  let nextProjectIndex =
+    requestJ[currentProjectIndex + 1] == undefined
+      ? 1
+      : currentProjectIndex + 1;
+  console.log(nextProjectIndex);
   let prevProjectIndex =
     currentProjectIndex - 1 >= 0 ? currentProjectIndex - 1 : 0;
 
-    // console.log(currentProjectIndex);
-    // console.log(nextProjectIndex);
-    // console.log(prevProjectIndex);
-
+  // console.log(currentProjectIndex);
+  // console.log(nextProjectIndex);
+  // console.log(prevProjectIndex);
 
   // console.log(requestJ[1].id);
-
-
 
   // console.log(myKeys);
 

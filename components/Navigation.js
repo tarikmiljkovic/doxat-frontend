@@ -13,9 +13,7 @@ import en from '../locales/en';
 
 import { IoLanguageOutline } from "react-icons/io5";
 
-function Main() {
-
-
+function Main({ requestJ, currentProjectIndex }) {
   const { visible } = useContext(SiteContext);
   const { category, setCategory } = useContext(SiteContext);
 
@@ -26,21 +24,20 @@ function Main() {
 
   let router = useRouter();
 
-  const {locale} =router;
-  const t= locale === 'bs'?bs:en;
+  const { locale } = router;
+  const t = locale === "bs" ? bs : en;
 
   // console.log(router);
 
   useEffect(() => {
-  function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
     }
-  }
-
   });
 
   return (
@@ -137,15 +134,28 @@ function Main() {
               {t.contact}
             </a>
           </Link>
-          <Link
-            href={router.asPath}
-            locale={router.locale == "bs" ? "en" : "bs"}
-          >
-            <a className="nav__listitem">
-              <IoLanguageOutline />
-              {router.locale == "bs" ? " EN" : " BS"}
-            </a>
-          </Link>
+
+          {requestJ != undefined ? (
+            <Link
+              href={`${requestJ[currentProjectIndex].localizations[0].id}`}
+              locale={router.locale == "bs" ? "en" : "bs"}
+            >
+              <a className="nav__listitem">
+                <IoLanguageOutline />
+                {router.locale == "bs" ? " EN" : " BS"}
+              </a>
+            </Link>
+          ) : (
+            <Link
+              href={router.asPath}
+              locale={router.locale == "bs" ? "en" : "bs"}
+            >
+              <a className="nav__listitem">
+                <IoLanguageOutline />
+                {router.locale == "bs" ? " EN" : " BS"}
+              </a>
+            </Link>
+          )}
         </ul>
       </nav>
     </MainStyled>
