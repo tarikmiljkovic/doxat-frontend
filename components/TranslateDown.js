@@ -10,7 +10,7 @@ import { IoChevronDownSharp } from "react-icons/io5";
 function TranslateDown() {
 
   const { visible, translateDown } = useContext(SiteContext);
-  console.log(visible);
+  // console.log(visible);
 
   return (
     <DivStyled>

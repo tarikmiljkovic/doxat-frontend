@@ -9,7 +9,7 @@ import BodyContainer from "../components/BodyContainer";
 
 export default function Onama({ result }) {
 
-  console.log(result);
+  // console.log(result);
   return (
     <>
       <ContextWrapper>

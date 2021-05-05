@@ -24,6 +24,7 @@ function ContextWrapper({children}) {
 const WrapperStyled = styled.div`
   .first img, .second img{
     width: 100% !important;
+    margin-bottom: 20px;
   }
 
 `;

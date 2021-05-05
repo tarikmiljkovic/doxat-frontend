@@ -91,6 +91,7 @@ const GridStyled = styled.div`
     object-fit: cover;
     width: 100%;
     height: 100%;
+
     object-position: center;
   }
   .items img.hover {

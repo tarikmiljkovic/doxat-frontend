@@ -3,6 +3,7 @@ import Navigation from "../../components/Navigation";
 import ContextWrapper from "../../components/ContextWrapper";
 import Footer from "../../components/Footer";
 import BodyWrapper from "../../components/BodyWrapper";
+import OtherProjects from "../../components/OtherProjects";
 import BodyContainer from "../../components/BodyContainer";
 import Link from 'next/link'
 
@@ -12,11 +13,11 @@ import Link from 'next/link'
 import getConfig from "next/config";
 // import { useRouter } from "next/router";
 
-export default function Projekt({ result }) {
+export default function Projekt({ result, requestJ, currentProjectIndex, nextProjectIndex, prevProjectIndex}) {
   // let router = useRouter();
   // const { visible, translateDown } = useContext(SiteContext);
 
-  console.log(result);
+  // console.log(result);
 
   // console.log(result);
 
@@ -37,21 +38,6 @@ export default function Projekt({ result }) {
         <BodyContainer>
           <Navigation />
 
-          {/* <Link
-            className=""
-            href={`/projekti/${result.id + 1}`}
-            as={`/projekti/${result.id + 1}`}
-          >
-            <a className="items" href="/">
-              <img
-                src={API_URL + result.slike[0].formats.small.url}
-                alt=""
-                className="hover"
-              />
-              <div className="bottom">{result.naziv}</div>
-            </a>
-          </Link> */}
-
           <BodyWrapper>
             <div>
               <div>
@@ -70,38 +56,44 @@ export default function Projekt({ result }) {
               }}
             ></div>
           </BodyWrapper>
+          <OtherProjects
+            requestJ={requestJ}
+            currentProjectIndex={currentProjectIndex}
+            nextProjectIndex={nextProjectIndex}
+            prevProjectIndex={prevProjectIndex}
+          ></OtherProjects>
+          <div>
+            {/* <div>
+              {typeof requestJ[result.id - 1] == undefined ? (
+                ""
+              ) : (
+                <div>
+                  {" "}
+                  <a
+                    href={`/projekti/${requestJ[result.id - 1].id}`}
+                    as={`/projekti/${requestJ[result.id - 1].id}`}
+                  >
+                    <img
+                      src={
+                        API_URL +
+                        requestJ[result.id - 1].skica.formats.thumbnail.url
+                      }
+                      alt=""
+                    />
+                  </a>
+                </div>
+              )}
+            </div>
+            <div>
+              {typeof requestJ[result.id + 1] == undefined
+                ? ""
+                : requestJ[result.id + 1].skica.formats.thumbnail.url}
+            </div> */}
+          </div>
           <Footer />
         </BodyContainer>
       </ContextWrapper>
-
-      {/* <div className="second" prop={result.opisProjekta}></div> */}
-
-      {/* <Container>
-        <Grid>
-          <SpanLeft>
-            <PageTitle
-              title={projekt.nazivProjekta} //post.nazivProjekta
-              description={projekt.opisProjekta}
-            ></PageTitle>
-          </SpanLeft>
-
-          <SpanRight>
-            <div className="grid grid-cols-4 gap-4 mt-0 px-4 sm:pt-0 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-              {projekt.galerijaProjekta.map((slike, index) => (
-                <img
-                  src={API_URL + slike.formats.large.url}
-                  alt=""
-                  key={index}
-                  className={`col-span-${countIndex(
-                    index
-                  )} md:col-span-${countIndex(index)}`}
-                />
-              ))}
-            </div>
-          </SpanRight>
-        </Grid>
-      </Container> */}
-    </> // End Wrapper
+    </>
   );
 }
 
@@ -111,18 +103,53 @@ export default function Projekt({ result }) {
 const { publicRuntimeConfig } = getConfig();
 
 export async function getServerSideProps(context) {
-
-  const res = await fetch(`${publicRuntimeConfig.API_URL}/Projektis/${context.params.id.toString()}`);
+  const res = await fetch(
+    `${publicRuntimeConfig.API_URL}/Projektis/${context.params.id.toString()}`
+  );
   const result = await res.json();
-  // const contextJson = await res.json();
 
-  // console.log(context)
+  let request = {};
 
-  // console.log(result);
+  if(context.locale =='bs'){
+     request = await fetch(`${publicRuntimeConfig.API_URL}/Projektis/`);
+  }else{
+     request = await fetch(
+      `${publicRuntimeConfig.API_URL}/Projektis?_locale=en`
+    );
+  }
+  console.log(context.params.id);
+
+  let requestJ = await request.json();
+
+  // console.log(context.params.id);
+  let currentProjectIndex = requestJ.findIndex((elem) => elem.id == context.params.id);
+  console.log(currentProjectIndex);
+
+  let nextProjectIndex = requestJ[currentProjectIndex +1] == undefined
+    ? 1
+    : currentProjectIndex + 1;
+    console.log(nextProjectIndex);
+  let prevProjectIndex =
+    currentProjectIndex - 1 >= 0 ? currentProjectIndex - 1 : 0;
+
+    // console.log(currentProjectIndex);
+    // console.log(nextProjectIndex);
+    // console.log(prevProjectIndex);
+
+
+  // console.log(requestJ[1].id);
+
+
+
+  // console.log(myKeys);
 
   return {
     props: {
       result,
+      requestJ,
+      currentProjectIndex,
+      nextProjectIndex,
+      prevProjectIndex,
     },
     // revalidate: 60,
   };
