@@ -13,6 +13,7 @@ function Grid({projekti}) {
 
   const { carouselState } = useContext(SiteContext);
   const { category, setCategory } = useContext(SiteContext);
+  const { pageTranslate, setPageTranslate } = useContext(SiteContext);
 
 
   // const [startIcon, changeIcon] = useState(true);
@@ -46,7 +47,10 @@ function Grid({projekti}) {
               href={`/projekti/${projekt.id}`}
               as={`/projekti/${projekt.id}`}
             >
-              <a className="items" href="/">
+              <a
+                className="items"
+                onClick={() => setPageTranslate("0vh")}
+              >
                 <img
                   src={API_URL + projekt.skica.url}
                   alt=""

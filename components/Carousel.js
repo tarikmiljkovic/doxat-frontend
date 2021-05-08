@@ -15,7 +15,7 @@ import React from "react";
 
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import { setLocale } from 'faker';
+// import { setLocale } from 'faker';
 import { transparentize } from 'polished';
 
 
@@ -83,7 +83,7 @@ function Carousel() {
     <CarouselStyled carouselState={carouselState}>
 
         <div className="carousel">
-          <div className="container">
+          <div className="logoContainer">
             <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
               <a className="mylogo">
                 <img src="/logo.svg" alt="Doxat" />
@@ -119,7 +119,7 @@ const CarouselStyled = styled.div`
   }
   .prevnext {
     opacity: 0.9;
-  }.container {
+  }.logoContainer {
     max-width: 1170px;
     margin: 0 auto;
     position: relative;
