@@ -19,7 +19,7 @@ function Main({ requestJ, currentProjectIndex }) {
   const { pageTranslate, setPageTranslate } = useContext(SiteContext);
 
 
-  const [mobileNavIcon, setMobileNavIcon] = useState(true);
+  const [mobileNavIcon, setMobileNavIcon] = useState(false);
 
 
   console.log(mobileNavIcon);
@@ -322,6 +322,14 @@ const MainStyled = styled.div`
     justify-content: center;
 
   }
+  .mylogo img{
+
+    /* padding: 0 0.625rem;
+    left: 0.625rem; */
+
+  }
+
+  /*  */
   .nav__listlogo{
     flex-basis: 1;
     padding: 0;
@@ -341,7 +349,7 @@ const MainStyled = styled.div`
     padding: 0;
     margin: 0;
     display: none;
-    display: ${(props) => (props.mobileNavIcon ? 'block' : 'none')};
+    display: ${(props) => (props.mobileNavIcon ? "block" : "none")};
     /* transition: all 1s ease; */
   }
     .nav__listitem::after {

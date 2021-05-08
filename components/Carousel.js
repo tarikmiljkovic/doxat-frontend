@@ -271,6 +271,13 @@ const CarouselStyled = styled.div`
       font-size: 11px;
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    .mylogo {
+      /* padding: 0.625rem; */
+      margin: 0.625rem;
+    }
+  }
 `;
 
 
