@@ -286,6 +286,10 @@ const CarouselStyled = styled.div`
       width: 3.5rem !important;
       height: 3.5rem !important;
     }
+
+    .carousel{
+      height: 100%;
+    }
   }
 `;
 
