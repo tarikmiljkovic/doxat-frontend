@@ -338,7 +338,7 @@ const MainStyled = styled.div`
   .mobileNavToggler{
     flex-basis: 1;
     display: block;
-    fill:white;
+    fill:black;
     font-size: 2rem;
   }
   .mobileNavToggler img{
