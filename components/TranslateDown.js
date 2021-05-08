@@ -65,6 +65,7 @@ const DivStyled = styled.div`
   @media only screen and (max-width: 600px) {
     .down > svg {
       font-size: 3.5rem !important;
+
     }
   }
 `;

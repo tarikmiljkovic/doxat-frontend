@@ -115,7 +115,9 @@ const CarouselStyled = styled.div`
   .parent {
     position: relative;
   }
-  .container {
+  .prevnext {
+    opacity: 0.9;
+  }.container {
     max-width: 1170px;
     margin: 0 auto;
     position: relative;
@@ -284,7 +286,6 @@ const CarouselStyled = styled.div`
       width: 3.5rem !important;
       height: 3.5rem !important;
     }
-
   }
 `;
 
