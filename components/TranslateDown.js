@@ -56,10 +56,16 @@ const DivStyled = styled.div`
     fill: white;
     color: white;
     opacity: ${(props) => (props.carouselState ? 0 : 1)};
-    display: ${(props) => (props.carouselState ? 'none' : 'block')};
+    display: ${(props) => (props.carouselState ? "none" : "block")};
   }
   .down svg:not(:first-of-type) {
     bottom: 2rem;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .down > svg {
+      font-size: 3.5rem !important;
+    }
   }
 `;
 

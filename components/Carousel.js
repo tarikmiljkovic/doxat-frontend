@@ -52,10 +52,12 @@ function Carousel() {
              position: "absolute",
              left: "2rem",
            }}
+           className="prevnext"
          />
        ),
        nextArrow: (
          <MdChevronRight
+
            style={{
              width: "5rem",
              height: "5rem",
@@ -64,6 +66,7 @@ function Carousel() {
              position: "absolute",
              right: "2rem",
            }}
+           className="prevnext"
          />
        ),
      };
@@ -277,6 +280,11 @@ const CarouselStyled = styled.div`
       /* padding: 0.625rem; */
       margin: 0.625rem;
     }
+    .prevnext {
+      width: 3.5rem !important;
+      height: 3.5rem !important;
+    }
+
   }
 `;
 
