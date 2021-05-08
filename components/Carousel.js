@@ -16,6 +16,7 @@ import React from "react";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { setLocale } from 'faker';
+import { transparentize } from 'polished';
 
 
 
@@ -50,6 +51,7 @@ function Carousel() {
              marginRight: "-5rem",
              fill: "white",
              position: "absolute",
+             background: "transparent",
              left: "2rem",
            }}
            className="prevnext"
@@ -57,13 +59,13 @@ function Carousel() {
        ),
        nextArrow: (
          <MdChevronRight
-
            style={{
              width: "5rem",
              height: "5rem",
              marginLeft: "-5rem",
              fill: "white",
              position: "absolute",
+             background: "transparent",
              right: "2rem",
            }}
            className="prevnext"
