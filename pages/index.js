@@ -2,36 +2,47 @@
 // import styles from '../styles/Home.module.css'
 const { API_URL } = process.env;
 
-import ContextWrapper from "../components/ContextWrapper";
+import Wrapper from "../components/Wrapper";
 import Navigation from "../components/Navigation";
 import Carousel from "../components/Carousel";
 import TranslateDown from "../components/TranslateDown";
 import Footer from "../components/Footer";
 import Grid from "../components/Grid";
-import BodyContainer from "../components/BodyContainer";
+import ContainerMain from "../components/ContainerMain";
+import {useContext} from 'react';
+import { SiteContext } from "../contexts/SiteContext";
 
 import { useRouter } from "next/router";
-
+import styled from "@emotion/styled";
 
 export default function Home({ projekti }) {
   let router = useRouter();
 
+      const { carouselState } = useContext(SiteContext);
+      const { pageTranslate } = useContext(SiteContext);
+
+
   return (
-    <>
-      <ContextWrapper>
-        <Carousel />
-        <TranslateDown />
-        <BodyContainer>
-          <Navigation />
-          <Grid projekti={projekti} />
-          <Footer />
-        </BodyContainer>
-        {/* A components in the middle doesn't have to pass the theme down
-        explicitly anymore. */}
-      </ContextWrapper>
-    </>
+    <IndexStyled carouselState={carouselState} pageTranslate={pageTranslate}>
+      <Carousel />
+      <TranslateDown />
+      <ContainerMain>
+        <Navigation />
+        <Grid projekti={projekti} />
+        <Footer />
+      </ContainerMain>
+      {/* </div> */}
+    </IndexStyled>
   );
 }
+
+const IndexStyled = styled.div`
+  /* height: calc(100% - 100vh); */
+  overflow: hidden;
+  max-height: 100vh;
+  // This must be constained,because of the translateY on the index.js page
+  overflow: ${(props) => (props.carouselState ? "hidden" : "visible")};
+`;
 
 export async function getStaticProps(context) {
 

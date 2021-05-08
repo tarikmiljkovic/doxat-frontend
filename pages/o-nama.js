@@ -1,20 +1,20 @@
 const { API_URL } = process.env;
 // import styles from '../styles/Home.module.css'
 
-import ContextWrapper from "../components/ContextWrapper";
+import Wrapper from "../components/Wrapper";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import BodyWrapper from "../components/BodyWrapper";
-import BodyContainer from "../components/BodyContainer";
+import ContainerBody from "../components/ContainerBody";
+import ContainerMain from "../components/ContainerMain";
 
 export default function Onama({ result }) {
 
   return (
     <>
-      <ContextWrapper>
-        <BodyContainer>
+      {/* <Wrapper> */}
+        <ContainerMain>
           <Navigation />
-          <BodyWrapper>
+          <ContainerBody>
 
               <img src={API_URL + result.slika.url} alt="" />
 
@@ -24,10 +24,10 @@ export default function Onama({ result }) {
                 }}
               ></div>
 
-          </BodyWrapper>
+          </ContainerBody>
           <Footer />
-        </BodyContainer>
-      </ContextWrapper>
+        </ContainerMain>
+      {/* </Wrapper> */}
     </>
   );
 }

@@ -1,11 +1,11 @@
 // import styles from '../styles/Home.module.css'
 const { API_URL } = process.env;
 
-import ContextWrapper from "../components/ContextWrapper";
+import Wrapper from "../components/Wrapper";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Grid from "../components/Grid";
-import BodyContainer from "../components/BodyContainer";
+import ContainerMain from "../components/ContainerMain";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import SiteContext from "../contexts/SiteContext";
@@ -19,15 +19,14 @@ export default function Home({ projekti }) {
 
   return (
     <>
-      <ContextWrapper>
-        <BodyContainer>
+        <ContainerMain>
           <Navigation />
           <Grid projekti={projekti} />
           <Footer />
-        </BodyContainer>
+        </ContainerMain>
         {/* A components in the middle doesn't have to pass the theme down
         explicitly anymore. */}
-      </ContextWrapper>
+
     </>
   );
 }

@@ -1,24 +1,38 @@
 import styled, { jsx } from "@emotion/styled";
-import SiteContext from '../contexts/SiteContext'
-// import { useRouter } from 'next/router'
-import { useContext, setState, useState } from "react";
+import { useContext } from "react";
 import { MdExpandMore } from "react-icons/md";
+import {SiteContext} from '../contexts/SiteContext'
+// import { useRouter } from 'next/router'
 
-import { IoChevronDownSharp } from "react-icons/io5";
+
+function translateDown() {
+
+  const { carouselState, mutateCarousel } = useContext(SiteContext);
+  const { pageTranslate, setPageTranslate } = useContext(SiteContext);
+
+  console.log(carouselState);
 
 
-function TranslateDown() {
+  const onClickHandler = () => {
+    mutateCarousel(!carouselState);
+    setPageTranslate('-100vh');
+  };
 
-  const { visible, translateDown } = useContext(SiteContext);
-  // console.log(visible);
+
+
+
 
   return (
     <DivStyled>
-      <a onClick={() => translateDown(() => !visible)} className="down">
-        <MdExpandMore />
-        <MdExpandMore className="second"
+      <a
+        // onClick={() => {
 
-        />
+        // }}
+        onClick={onClickHandler}
+        className="down"
+      >
+        <MdExpandMore />
+        <MdExpandMore className="second" />
       </a>
     </DivStyled>
   );
@@ -41,11 +55,12 @@ const DivStyled = styled.div`
   .down svg {
     fill: white;
     color: white;
-    opacity: ${(props) => (props.visible == true ? 0 : 1)};
+    opacity: ${(props) => (props.carouselState ? 0 : 1)};
+    display: ${(props) => (props.carouselState ? 'none' : 'block')};
   }
   .down svg:not(:first-of-type) {
     bottom: 2rem;
   }
 `;
 
-export default TranslateDown;
+export default translateDown;

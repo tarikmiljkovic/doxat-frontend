@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 
 import { useContext } from "react";
-import SiteContext from "../contexts/SiteContext";
+import {SiteContext} from "../contexts/SiteContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { RiMenuLine, RiMenu4Fill } from "react-icons/ri";
@@ -13,7 +13,7 @@ import bs from "../locales/bs";
 import en from "../locales/en";
 
 function Footer() {
-  const { visible } = useContext(SiteContext);
+  const { carouselState } = useContext(SiteContext);
   const [startIcon, changeIcon] = useState(true);
   // const { navIcon, changeNavIcon } = useState(`<RiMenuLine/>`);
 
@@ -26,7 +26,7 @@ function Footer() {
   useEffect(() => {});
 
   return (
-    <FooterStyled visible={visible}>
+    <FooterStyled carouselState={carouselState}>
       <footer>
         <div>
           <p>

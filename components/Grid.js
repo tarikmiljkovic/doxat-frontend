@@ -5,13 +5,13 @@ const { API_URL } = process.env;
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
-import SiteContext from "../contexts/SiteContext";
+import {SiteContext} from "../contexts/SiteContext";
 import Link from 'next/link'
 
 import { useRouter } from "next/router";
 function Grid({projekti}) {
 
-  const { visible } = useContext(SiteContext);
+  const { carouselState } = useContext(SiteContext);
   const { category, setCategory } = useContext(SiteContext);
 
 
@@ -25,7 +25,7 @@ function Grid({projekti}) {
   // console.log(router);
 
   return (
-    <GridStyled visible={visible} className="center">
+    <GridStyled carouselState={carouselState} className="center">
       <div className="grid-container">
         {projekti
           .filter((data) => {
@@ -74,6 +74,7 @@ const GridStyled = styled.div`
     gap: 1rem;
     gap: 10px 0;
     margin: 0 auto;
+    height: auto;
   }
   .center {
     /* margin: 0 auto; */
@@ -143,7 +144,7 @@ const GridStyled = styled.div`
         ". . .";
     }
     .items {
-      height: 24rem;
+      height: 16rem;
       min-width: auto;
       overflow: hidden;
       object-fit: cover;

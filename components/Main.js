@@ -11,7 +11,7 @@ import { RiMenuLine, RiMenu4Fill } from "react-icons/ri";
 
 
 function Main() {
-  const { visible } = useContext(SiteContext);
+  const { carouselState } = useContext(SiteContext);
   const [startIcon, changeIcon] = useState(true);
   // const { navIcon, changeNavIcon } = useState(`<RiMenuLine/>`);
 
@@ -26,7 +26,7 @@ function Main() {
   });
 
   return (
-    <MainStyled visible={visible}>
+    <MainStyled carouselState={carouselState}>
 
       <h1>hello</h1>
     </MainStyled>

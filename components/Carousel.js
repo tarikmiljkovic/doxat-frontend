@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { useEffect, useState, useRef, createRef } from "react";
 import Link from "next/link";
 import { useContext } from "react";
-import SiteContext from "../contexts/SiteContext";
+import {SiteContext} from "../contexts/SiteContext";
 import { useRouter } from "next/router";
 import {
   MdChevronRight,
@@ -22,11 +22,14 @@ import { setLocale } from 'faker';
 function Carousel() {
 
   let router = useRouter();
-  // let contextType = SiteContext;
-  const { visible } = useContext(SiteContext);
-  const [prev, setPrev] = useState(0);
-  const [next, setNext] = useState(0);
-  const imagesNode = useRef();
+
+
+
+  const { carouselState } = useContext(SiteContext);
+  // console.log(carouselState);
+    // const [prev, setPrev] = useState(0);
+    // const [next, setNext] = useState(0);
+    // const imagesNode = useRef();
 
    const slideImages = [
      "images/doxat-1.jpg",
@@ -69,31 +72,33 @@ function Carousel() {
 
 
 
-  },[prev, next]);
+  },[]);
 
   return (
-    <CarouselStyled visible={visible}>
-      <div className="slideDown">
-        <div className="container">
-          <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
-            <a className="mylogo">
-              <img src="/logo.svg" alt="Doxat" />
-            </a>
-          </Link>
+    <CarouselStyled carouselState={carouselState}>
+
+        <div className="carousel">
+          <div className="container">
+            <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
+              <a className="mylogo">
+                <img src="/logo.svg" alt="Doxat" />
+              </a>
+            </Link>
+          </div>
+
+          <Slide {...properties}>
+            <div className="each-slide">
+              <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
+            </div>
+            <div className="each-slide">
+              <div style={{ backgroundImage: `url(${slideImages[1]})` }}></div>
+            </div>
+            <div className="each-slide">
+              <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
+            </div>
+          </Slide>
         </div>
 
-        <Slide {...properties}>
-          <div className="each-slide">
-            <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
-          </div>
-          <div className="each-slide">
-            <div style={{ backgroundImage: `url(${slideImages[1]})` }}></div>
-          </div>
-          <div className="each-slide">
-            <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
-          </div>
-        </Slide>
-      </div>
 
       {/* <MdChevronLeft /> */}
     </CarouselStyled>
@@ -109,7 +114,6 @@ const CarouselStyled = styled.div`
   }
   .container {
     max-width: 1170px;
-
     margin: 0 auto;
     position: relative;
   }
@@ -124,17 +128,19 @@ const CarouselStyled = styled.div`
     align-items: center;
     justify-content: center;
     background-size: cover;
+    width: 100%;
+    background-position: 50% 50%;
+    height: 100%;
+    background-repeat: no-repeat;
     height: 100vh;
   }
-  .slideDown {
-    transform: translateY(${(props) => (props.visible ? "0vh" : "-100vh")});
-
- //scale to 0.9
-
+  .carousel {
+    transform: translateY(${(props) => (props.carouselState ? "0" : "-100vh")});
+    opacity: ${(props) => (props.carouselState ? 1 : 0)};
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-duration: 1.2s;
     height: 100vh;
-    opacity: ${(props) => (props.visible ? 1 : 0)};
+    overflow: hidden;
   }
   .each-slide span {
     padding: 40px;
@@ -194,8 +200,7 @@ const CarouselStyled = styled.div`
     margin: auto;
     overflow: hidden;
     object-fit: contain;
-    transform: translateY(0);
-    transform: translateY(${(props) => (props.visible ? "0vh" : "-100vh")});
+
     transition: all 1s ease;
   }
 

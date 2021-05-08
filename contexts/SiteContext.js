@@ -1,10 +1,29 @@
-{
-  /* 1 */
-}
-// Context lets us pass a value deep into the component tree
-// without explicitly threading it through every component.
-// Create a context for the current theme (with "light" as the default).
+import { createContext, useState } from "react";
 
-import { createContext } from "react";
-const SiteContext = createContext(null);
-export default SiteContext;
+const SiteContext = createContext();
+
+const SiteProvider = ({ children }) => {
+
+  const [pageTranslate, setPageTranslate] = useState('0vh');
+  const [carouselState, mutateCarousel] = useState(true);
+
+  const [category, setCategory] = useState("svi");
+
+  return (
+    <SiteContext.Provider
+      value={{
+        pageTranslate,
+        setPageTranslate,
+        carouselState,
+        mutateCarousel,
+
+        category,
+        setCategory,
+      }}
+    >
+      {children}
+    </SiteContext.Provider>
+  );
+};
+
+export {SiteProvider, SiteContext};

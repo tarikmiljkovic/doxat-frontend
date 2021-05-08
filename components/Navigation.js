@@ -1,23 +1,36 @@
 import styled from "@emotion/styled";
 
-import { useEffect, useState } from "react";
+import { useEffect, useContext, useState} from "react";
 
-import { useContext } from "react";
-import SiteContext from "../contexts/SiteContext";
+import {SiteContext} from "../contexts/SiteContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { RiMenuLine, RiMenu4Fill } from "react-icons/ri";
+// import { RiMenuLine, RiMenu4Fill } from "react-icons/ri";
 
 import bs from '../locales/bs';
 import en from '../locales/en';
 
 import { IoLanguageOutline } from "react-icons/io5";
+import {MdMenu} from 'react-icons/md';
 
 function Main({ requestJ, currentProjectIndex }) {
-  const { visible } = useContext(SiteContext);
+  const { carouselState, mutateCarousel } = useContext(SiteContext);
   const { category, setCategory } = useContext(SiteContext);
+  const { pageTranslate, setPageTranslate } = useContext(SiteContext);
 
-  // console.log(category);
+
+  const [mobileNavIcon, setMobileNavIcon] = useState(true);
+
+
+  console.log(mobileNavIcon);
+
+  const onClickHandler = () => {
+    // mutateCarousel(false);
+    // setPageTranslate('0vh');
+
+  };
+
+
 
   // const [startIcon, changeIcon] = useState(true);
   // const { navIcon, changeNavIcon } = useState(`<RiMenuLine/>`);
@@ -26,8 +39,6 @@ function Main({ requestJ, currentProjectIndex }) {
 
   const { locale } = router;
   const t = locale === "bs" ? bs : en;
-
-  // console.log(router);
 
   useEffect(() => {
     function myFunction() {
@@ -41,13 +52,18 @@ function Main({ requestJ, currentProjectIndex }) {
   });
 
   return (
-    <MainStyled visible={visible}>
+    <MainStyled mobileNavIcon={mobileNavIcon}>
       <nav className="nav">
         <ul className="nav__list">
           <li className="nav__listlogo">
             {/* <img src="/logo.svg" alt=""/> */}
             <Link href="/" locale={router.locale}>
-              <a>
+              <a
+                onClick={() => {
+                  mutateCarousel(true);
+                  setPageTranslate("0vh");
+                }}
+              >
                 <svg
                   id="Layer_1"
                   data-name="Layer 1"
@@ -74,6 +90,11 @@ function Main({ requestJ, currentProjectIndex }) {
               </a>
             </Link>
           </li>
+
+          <a href="#" onClick={() => setMobileNavIcon(!mobileNavIcon)}>
+            <MdMenu className="mobileNavToggler" />
+          </a>
+
           <Link href="/o-nama" locale={router.locale}>
             <a
               className={
@@ -81,6 +102,7 @@ function Main({ requestJ, currentProjectIndex }) {
                   ? "bold nav__listitem"
                   : "nav__listitem"
               }
+              onClick={() => setPageTranslate("0vh")}
             >
               {t.aboutus}
             </a>
@@ -92,6 +114,7 @@ function Main({ requestJ, currentProjectIndex }) {
                   ? "bold nav__listitem"
                   : "nav__listitem"
               }
+              onClick={() => setPageTranslate("0vh")}
             >
               {t.projects}
               <ul className="nav__listitemdrop">
@@ -114,6 +137,7 @@ function Main({ requestJ, currentProjectIndex }) {
                   ? "bold nav__listitem"
                   : "nav__listitem"
               }
+              onClick={() => setPageTranslate("0vh")}
             >
               {t.software}
               {/* <ul class="nav__listitemdrop">
@@ -130,6 +154,7 @@ function Main({ requestJ, currentProjectIndex }) {
                   ? "bold nav__listitem"
                   : "nav__listitem"
               }
+              onClick={() => setPageTranslate("0vh")}
             >
               {t.contact}
             </a>
@@ -249,7 +274,7 @@ const MainStyled = styled.div`
   .nav__listitem:hover ul,
   .nav__listitem:focus ul {
     opacity: 1;
-    visibility: visible;
+    visibility: carouselState;
   }
   .nav__listitemdrop {
     position: absolute;
@@ -280,23 +305,44 @@ const MainStyled = styled.div`
   .nav__listitemdrop li:hover,
   .nav__listitemdrop li:focus {
   }
+
+  .mobileNavToggler{
+    display: none;
+  }
 @media only screen and (max-width: 600px) {
   nav{
     flex-wrap: wrap;
+    margin: 14px 0 !important;
   }
   .nav__list{
     width: 100%;
     margin: 0;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
   }
   .nav__listlogo{
-    width: 100%;
+    flex-basis: 1;
+    padding: 0;
 
+  }
+  .mobileNavToggler{
+    flex-basis: 1;
+    display: block;
+    fill:white;
+    font-size: 2rem;
+  }
+  .mobileNavToggler img{
+    margin: auto 0;
   }
   .nav__listitem{
     width: 100%;
     padding: 0;
     margin: 0;
+    display: none;
+    display: ${(props) => (props.mobileNavIcon ? 'block' : 'none')};
+    /* transition: all 1s ease; */
   }
     .nav__listitem::after {
     content: "";

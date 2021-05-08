@@ -1,31 +1,41 @@
 // import styles from '../styles/Home.module.css'
 
 import styled from "@emotion/styled";
-export default function BodyWrapper(props) {
+export default function ContainerBody(props) {
 
   // console.log(props.children);
   return (
     <>
-      <BodyWrapperStyled>
+      <ContainerBodyStyled>
         <div className="contain">
           <div className="grid-container">
             <div className="first">{props.children[0]}</div>
             <div className="second">{props.children[1]}</div>
           </div>
         </div>
-      </BodyWrapperStyled>
+      </ContainerBodyStyled>
     </>
   );
 }
 
 
-const BodyWrapperStyled = styled.div`
+const ContainerBodyStyled = styled.div`
+  .first img,
+  .second img {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  .wrapper {
+    height: 100%;
+  }
+
+
   .contain {
     max-width: 1170px;
     margin: 0 auto;
   }
-  .second{
-    color:blue;
+  .second {
+    color: blue;
   }
   .grid-container {
     display: grid;

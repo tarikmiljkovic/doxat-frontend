@@ -1,10 +1,10 @@
 const { API_URL } = process.env;
 import Navigation from "../../components/Navigation";
-import ContextWrapper from "../../components/ContextWrapper";
+import Wrapper from "../../components/Wrapper";
 import Footer from "../../components/Footer";
-import BodyWrapper from "../../components/BodyWrapper";
+import ContainerBody from "../../components/ContainerBody";
 import OtherProjects from "../../components/OtherProjects";
-import BodyContainer from "../../components/BodyContainer";
+import ContainerMain from "../../components/ContainerMain";
 import Link from 'next/link'
 
 // import { useContext } from "react";
@@ -15,7 +15,7 @@ import getConfig from "next/config";
 
 export default function Projekt({ result, requestJ, currentProjectIndex, nextProjectIndex, prevProjectIndex}) {
   // let router = useRouter();
-  // const { visible, translateDown } = useContext(SiteContext);
+  // const { carouselState, mutateCarousel } = useContext(SiteContext);
 
   // console.log(result);
 
@@ -34,14 +34,14 @@ export default function Projekt({ result, requestJ, currentProjectIndex, nextPro
 
   return (
     <>
-      <ContextWrapper>
-        <BodyContainer>
+      <Wrapper>
+        <ContainerMain>
           <Navigation
             requestJ={requestJ}
             currentProjectIndex={currentProjectIndex}
           />
 
-          <BodyWrapper>
+          <ContainerBody>
             <div>
               <div>
                 {result.slike.map((slika, index) => (
@@ -58,7 +58,7 @@ export default function Projekt({ result, requestJ, currentProjectIndex, nextPro
                 __html: result.opis,
               }}
             ></div>
-          </BodyWrapper>
+          </ContainerBody>
           <OtherProjects
             requestJ={requestJ}
             currentProjectIndex={currentProjectIndex}
@@ -94,8 +94,8 @@ export default function Projekt({ result, requestJ, currentProjectIndex, nextPro
             </div> */}
           </div>
           <Footer />
-        </BodyContainer>
-      </ContextWrapper>
+        </ContainerMain>
+      </Wrapper>
     </>
   );
 }

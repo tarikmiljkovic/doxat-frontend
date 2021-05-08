@@ -1,21 +1,24 @@
 const { API_URL } = process.env;
 // import styles from '../styles/Home.module.css'
 
-import ContextWrapper from "../components/ContextWrapper";
+import Wrapper from "../components/Wrapper";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import BodyWrapper from "../components/BodyWrapper";
-import BodyContainer from "../components/BodyContainer";
+import ContainerBody from "../components/ContainerBody";
+import ContainerMain from "../components/ContainerMain";
 
-export default function Onama({ result }) {
+export default function Software({ result }) {
+
+    // const { carouselState } = useContext(SiteContext);
+    // const { pageTranslate } = useContext(SiteContext);
 
   // console.log(result);
   return (
     <>
-      <ContextWrapper>
-        <BodyContainer>
+
+        <ContainerMain>
           <Navigation />
-          <BodyWrapper>
+          <ContainerBody>
 
 
               <div className="">
@@ -34,10 +37,10 @@ export default function Onama({ result }) {
                 }}
               ></div>
 
-          </BodyWrapper>
+          </ContainerBody>
           <Footer />
-        </BodyContainer>
-      </ContextWrapper>
+        </ContainerMain>
+
     </>
   );
 }
