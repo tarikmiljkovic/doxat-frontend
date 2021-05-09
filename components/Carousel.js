@@ -81,29 +81,27 @@ function Carousel() {
 
   return (
     <CarouselStyled carouselState={carouselState}>
-
-        <div className="carousel">
-          <div className="logoContainer">
-            <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
-              <a className="mylogo">
-                <img src="/logo.svg" alt="Doxat" />
-              </a>
-            </Link>
-          </div>
-
-          <Slide {...properties}>
-            <div className="each-slide">
-              <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
-            </div>
-            <div className="each-slide">
-              <div style={{ backgroundImage: `url(${slideImages[1]})` }}></div>
-            </div>
-            <div className="each-slide">
-              <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
-            </div>
-          </Slide>
+      <div className="carousel">
+        <div className="logoContainer">
+          <Link href={`/${router.locale == "bs" ? "" : "en"}`}>
+            <a className="mylogo">
+              <img src="/logo.svg" alt="Doxat" />
+            </a>
+          </Link>
         </div>
 
+        <Slide {...properties} style={{ height: "100vh", width: "100%" }}>
+          <div className="each-slide">
+            <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
+          </div>
+          <div className="each-slide">
+            <div style={{ backgroundImage: `url(${slideImages[1]})` }}></div>
+          </div>
+          <div className="each-slide">
+            <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
+          </div>
+        </Slide>
+      </div>
 
       {/* <MdChevronLeft /> */}
     </CarouselStyled>
@@ -131,24 +129,33 @@ const CarouselStyled = styled.div`
     background: transparent;
     fill: white;
   }
-  .each-slide > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: cover;
-    width: 100%;
-    background-position: 50% 50%;
-    height: 100%;
-    background-repeat: no-repeat;
-    height: 100vh;
-  }
+
   .carousel {
     transform: translateY(${(props) => (props.carouselState ? "0" : "-100vh")});
     opacity: ${(props) => (props.carouselState ? 1 : 0)};
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
     transition-duration: 1.2s;
-    height: 100vh;
+    height: 100vh !important;
     overflow: hidden;
+    box-sizing:border-box;
+    padding: 10px;
+  }
+  .each-slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* object-fit: cover; */
+    /* background-size: contain; */
+    /* max-width: 100vh; */
+    /* width: 100%; */
+    background-position: 50% 50%;
+    /* height: 100vh; */
+    height: 100vh !important;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+  }
+  .images-wrap {
+    /* height: 100% !important; */
   }
   .each-slide span {
     padding: 40px;
@@ -292,6 +299,7 @@ const CarouselStyled = styled.div`
 
     .carousel {
       height: 100%;
+      width: 100%;
     }
   }
 `;
