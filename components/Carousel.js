@@ -283,14 +283,14 @@ const CarouselStyled = styled.div`
   @media only screen and (max-width: 600px) {
     .mylogo {
       /* padding: 0.625rem; */
-      margin: 0.625rem;
+      margin: 1.25rem;
     }
     .prevnext {
       width: 3.5rem !important;
       height: 3.5rem !important;
     }
 
-    .carousel{
+    .carousel {
       height: 100%;
     }
   }
