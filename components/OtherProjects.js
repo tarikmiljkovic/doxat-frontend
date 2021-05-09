@@ -91,7 +91,7 @@ const OthersStyled = styled.div`
     grid-template-columns: repeat(1, auto);
     grid-template-rows: repeat(1, auto);
     gap: 1rem;
-    gap: 10px 0;
+    gap: 1.25rem 0;
     margin: 0 auto;
   }
   .heading h4 {

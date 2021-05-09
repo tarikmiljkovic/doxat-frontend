@@ -22,7 +22,7 @@ function Main({ requestJ, currentProjectIndex }) {
   const [mobileNavIcon, setMobileNavIcon] = useState(false);
 
 
-  console.log(mobileNavIcon);
+  // console.log(mobileNavIcon);
 
   const onClickHandler = () => {
     // mutateCarousel(false);

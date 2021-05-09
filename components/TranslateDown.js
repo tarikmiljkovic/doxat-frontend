@@ -10,7 +10,7 @@ function translateDown() {
   const { carouselState, mutateCarousel } = useContext(SiteContext);
   const { pageTranslate, setPageTranslate } = useContext(SiteContext);
 
-  console.log(carouselState);
+  // console.log(carouselState);
 
 
   const onClickHandler = () => {

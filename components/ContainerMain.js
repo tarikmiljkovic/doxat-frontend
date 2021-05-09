@@ -10,7 +10,7 @@ function ContainerMain({children}) {
     const { carouselState } = useContext(SiteContext);
     const { pageTranslate } = useContext(SiteContext);
 
-    console.log(carouselState);
+    // console.log(carouselState);
 
     useEffect(() => {}, []);
 
@@ -27,7 +27,6 @@ function ContainerMain({children}) {
 
 
 const ContainerMainStyled = styled.div`
-
   transform: translateY(${(props) => props.pageTranslate});
   /* height: ${(props) => (props.pageTranslate ? "100%" : "100%")}; */
   /* height: calc('100%' - '100vh'); */
@@ -41,6 +40,9 @@ const ContainerMainStyled = styled.div`
 
   overflow: hidden !important;
 
+  @media only screen and (max-width: 600px) {
+    padding: 0 1.25rem;
+  }
 `;
 
 

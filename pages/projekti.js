@@ -11,7 +11,7 @@ import { useContext } from "react";
 import SiteContext from "../contexts/SiteContext";
 
 
-export default function Home({ projekti }) {
+export default function Home({ projekti, numberOfProjects }) {
   let router = useRouter();
 
   // const { category, setCategory } = useContext(SiteContext);
@@ -19,14 +19,13 @@ export default function Home({ projekti }) {
 
   return (
     <>
-        <ContainerMain>
-          <Navigation />
-          <Grid projekti={projekti} />
-          <Footer />
-        </ContainerMain>
-        {/* A components in the middle doesn't have to pass the theme down
+      <ContainerMain>
+        <Navigation />
+        <Grid projekti={projekti} numberOfProjects={numberOfProjects} />
+        <Footer />
+      </ContainerMain>
+      {/* A components in the middle doesn't have to pass the theme down
         explicitly anymore. */}
-
     </>
   );
 }
@@ -42,7 +41,15 @@ export async function getServerSideProps(context) {
   );
   const projekti = await res.json();
 
+  const countProjects = await fetch(
+    context.locale == "bs"
+      ? `${API_URL}/Projektis/count`
+      : `${API_URL}/Projektis/count?_locale=en`
+  );
+  const numberOfProjects = await countProjects.json();
+
+
   return {
-    props: { projekti },
+    props: { projekti, numberOfProjects },
   };
 }

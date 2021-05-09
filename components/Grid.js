@@ -9,16 +9,15 @@ import {SiteContext} from "../contexts/SiteContext";
 import Link from 'next/link'
 
 import { useRouter } from "next/router";
-function Grid({projekti}) {
-
+function Grid({ projekti, numberOfProjects }) {
   const { carouselState } = useContext(SiteContext);
   const { category, setCategory } = useContext(SiteContext);
   const { pageTranslate, setPageTranslate } = useContext(SiteContext);
 
-
   // const [startIcon, changeIcon] = useState(true);
   // const { navIcon, changeNavIcon } = useState(`<RiMenuLine/>`);
 
+  let calculateGridRows = Math.ceil(numberOfProjects/3);
 
 
   let router = useRouter();
@@ -27,6 +26,7 @@ function Grid({projekti}) {
 
   return (
     <GridStyled carouselState={carouselState} className="center">
+
       <div className="grid-container">
         {projekti
           .filter((data) => {
@@ -47,10 +47,7 @@ function Grid({projekti}) {
               href={`/projekti/${projekt.id}`}
               as={`/projekti/${projekt.id}`}
             >
-              <a
-                className="items"
-                onClick={() => setPageTranslate("0vh")}
-              >
+              <a className="items" onClick={() => setPageTranslate("0vh")}>
                 <img
                   src={API_URL + projekt.skica.url}
                   alt=""
@@ -76,7 +73,7 @@ const GridStyled = styled.div`
     grid-template-columns: repeat(1, auto);
     grid-template-rows: repeat(1, auto);
     gap: 1rem;
-    gap: 10px 0;
+    gap: 1.25rem 0;
     margin: 0 auto;
     height: auto;
   }
@@ -85,7 +82,7 @@ const GridStyled = styled.div`
     /* width: 80%; */
   }
   .items {
-    max-height: 20rem;
+    max-height: 16rem !important;
     min-width: auto;
     overflow: hidden;
     object-fit: cover;
@@ -140,19 +137,22 @@ const GridStyled = styled.div`
     .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 20px 20px;
-      grid-template-areas:
+      grid-template-rows: repeat({calculateGridRows}, 1fr);
+      gap: 30px 30px;
+      /* grid-template-areas:
         ". . ."
         ". . ."
-        ". . .";
+        ". . ."; */
     }
     .items {
-      height: 16rem;
+      max-height: 16rem !important;
       min-width: auto;
       overflow: hidden;
       object-fit: cover;
       object-position: center;
+    }
+    .item img {
+      height: 100%;
     }
   }
 

@@ -65,17 +65,21 @@ const FooterStyled = styled.div`
   footer {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
+    align-items: start;
     flex-direction: row;
-    padding: 48px 0;
+    padding: 20px 0;
     flex-wrap: wrap;
+  }
+
+  footer p:first-of-type {
+    margin-top: 0;
   }
   footer div:first-of-type {
     margin-right: auto;
     flex-basis: 100%;
     /* flex-shrink: 0; */
   }
-  b{
+  b {
     font-weight: 600;
   }
 
@@ -117,6 +121,10 @@ const FooterStyled = styled.div`
       flex: 0 1 auto;
       margin-left: 80px;
       float: right;
+    }
+
+    footer {
+      padding: 48px 0;
     }
   }
 

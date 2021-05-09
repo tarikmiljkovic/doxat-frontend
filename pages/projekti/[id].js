@@ -13,13 +13,20 @@ import Link from 'next/link'
 import getConfig from "next/config";
 // import { useRouter } from "next/router";
 
-export default function Projekt({ result, requestJ, currentProjectIndex, nextProjectIndex, prevProjectIndex}) {
+export default function Projekt({
+  result,
+  requestJ,
+  currentProjectIndex,
+  nextProjectIndex,
+  prevProjectIndex,
+
+}) {
   // let router = useRouter();
   // const { carouselState, mutateCarousel } = useContext(SiteContext);
 
   // console.log(result);
 
-  // console.log(result);
+
 
   function countIndex(index) {
     if (index == 0) {
@@ -43,6 +50,7 @@ export default function Projekt({ result, requestJ, currentProjectIndex, nextPro
 
           <ContainerBody>
             <div>
+
               <div>
                 {result.slike.map((slika, index) => (
                   <img
@@ -59,6 +67,7 @@ export default function Projekt({ result, requestJ, currentProjectIndex, nextPro
               }}
             ></div>
           </ContainerBody>
+
           <OtherProjects
             requestJ={requestJ}
             currentProjectIndex={currentProjectIndex}
@@ -127,13 +136,12 @@ export async function getServerSideProps(context) {
   let currentProjectIndex = requestJ.findIndex(
     (elem) => elem.id == context.params.id
   );
-  console.log(currentProjectIndex);
 
   let nextProjectIndex =
     requestJ[currentProjectIndex + 1] == undefined
       ? 1
       : currentProjectIndex + 1;
-  console.log(nextProjectIndex);
+
   let prevProjectIndex =
     currentProjectIndex - 1 >= 0 ? currentProjectIndex - 1 : 0;
 
