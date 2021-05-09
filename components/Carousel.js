@@ -119,7 +119,9 @@ const CarouselStyled = styled.div`
   }
   .prevnext {
     opacity: 0.9;
-  }.logoContainer {
+  }
+
+  .logoContainer {
     max-width: 1170px;
     margin: 0 auto;
     position: relative;
@@ -127,7 +129,6 @@ const CarouselStyled = styled.div`
 
   .default-nav {
     background: transparent;
-    color: white;
     fill: white;
   }
   .each-slide > div {

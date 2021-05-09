@@ -320,7 +320,12 @@ const MainStyled = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 0;
 
+
+  }
+  .nav__listitem{
+    padding: 1.1rem 0 !important;
   }
   .mylogo img{
 
