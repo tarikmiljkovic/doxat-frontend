@@ -10,7 +10,9 @@ export default function ContainerBody(props) {
         <div className="contain">
           <div className="grid-container">
             <div className="first">{props.children[0]}</div>
-            <div className="second">{props.children[1]}</div>
+            <div className="second">
+              {props.children[1]} {props.children[2]}
+            </div>
           </div>
         </div>
       </ContainerBodyStyled>
@@ -29,14 +31,18 @@ const ContainerBodyStyled = styled.div`
     height: 100%;
   }
 
+  .second{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
 
   .contain {
     max-width: 1170px;
     margin: 0 auto;
   }
-  .second {
-    color: blue;
-  }
+
   .grid-container {
     display: grid;
     grid-template-columns: auto;

@@ -145,9 +145,9 @@ const CarouselStyled = styled.div`
     align-items: center;
     justify-content: center;
     /* object-fit: cover; */
-    /* background-size: contain; */
+    background-size: cover;
     /* max-width: 100vh; */
-    /* width: 100%; */
+    width: 100%;
     background-position: 50% 50%;
     /* height: 100vh; */
     height: 100vh !important;

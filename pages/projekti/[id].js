@@ -26,8 +26,6 @@ export default function Projekt({
 
   // console.log(result);
 
-
-
   function countIndex(index) {
     if (index == 0) {
       return 4;
@@ -38,6 +36,24 @@ export default function Projekt({
       return 1;
     }
   }
+
+
+  function OtherComps() {
+    // const isLoggedIn = props.isLoggedIn;
+
+    if (currentProjectIndex && nextProjectIndex && prevProjectIndex) {
+      return (
+        <OtherProjects
+          requestJ={requestJ}
+          currentProjectIndex={currentProjectIndex}
+          nextProjectIndex={nextProjectIndex}
+          prevProjectIndex={prevProjectIndex}
+        ></OtherProjects>
+      );
+    }
+    return <></>;
+  }
+
 
   return (
     <>
@@ -50,7 +66,6 @@ export default function Projekt({
 
           <ContainerBody>
             <div>
-
               <div>
                 {result.slike.map((slika, index) => (
                   <img
@@ -61,19 +76,31 @@ export default function Projekt({
                 ))}
               </div>
             </div>
+
             <div
               dangerouslySetInnerHTML={{
                 __html: result.opis,
               }}
             ></div>
+            <div>
+              {result.plan.map((slika, index) => (
+                <img
+                  src={API_URL + slika.formats.large.url}
+                  alt=""
+                  key={index}
+                />
+              ))}
+            </div>
           </ContainerBody>
 
-          <OtherProjects
+          {OtherComps()}
+
+          {/* <OtherProjects
             requestJ={requestJ}
             currentProjectIndex={currentProjectIndex}
             nextProjectIndex={nextProjectIndex}
             prevProjectIndex={prevProjectIndex}
-          ></OtherProjects>
+          ></OtherProjects> */}
           <div>
             {/* <div>
               {typeof requestJ[result.id - 1] == undefined ? (
@@ -145,6 +172,8 @@ export async function getServerSideProps(context) {
   let prevProjectIndex =
     currentProjectIndex - 1 >= 0 ? currentProjectIndex - 1 : 0;
 
+
+
   // console.log(currentProjectIndex);
   // console.log(nextProjectIndex);
   // console.log(prevProjectIndex);
@@ -157,7 +186,7 @@ export async function getServerSideProps(context) {
     props: {
       result,
       requestJ,
-      currentProjectIndex,
+      currentProjectIndex ,
       nextProjectIndex,
       prevProjectIndex,
     },

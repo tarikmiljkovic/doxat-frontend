@@ -14,6 +14,8 @@ function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex
   let router = useRouter();
 
   return (
+
+
     <OthersStyled>
       <div className="heading">
         <hr />
@@ -82,6 +84,7 @@ function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex
         </Link>
       </div>
     </OthersStyled>
+
   );
 }
 
