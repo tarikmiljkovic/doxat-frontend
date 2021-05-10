@@ -38,7 +38,7 @@ export default function Projekt({
   }
 
 
-  function OtherComps() {
+  function otherProjects() {
     // const isLoggedIn = props.isLoggedIn;
 
     if (currentProjectIndex && nextProjectIndex && prevProjectIndex) {
@@ -93,14 +93,9 @@ export default function Projekt({
             </div>
           </ContainerBody>
 
-          {OtherComps()}
+          {otherProjects()}
 
-          {/* <OtherProjects
-            requestJ={requestJ}
-            currentProjectIndex={currentProjectIndex}
-            nextProjectIndex={nextProjectIndex}
-            prevProjectIndex={prevProjectIndex}
-          ></OtherProjects> */}
+
           <div>
             {/* <div>
               {typeof requestJ[result.id - 1] == undefined ? (
