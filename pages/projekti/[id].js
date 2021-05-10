@@ -70,7 +70,7 @@ export default function Projekt({
                 {result.slike.map((slika, index) => (
                   <img
                     src={API_URL + slika.formats.large.url}
-                    alt=""
+                    alt="doxat sarajevo"
                     key={index}
                   />
                 ))}

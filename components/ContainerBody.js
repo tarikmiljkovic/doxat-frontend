@@ -22,21 +22,32 @@ export default function ContainerBody(props) {
 
 
 const ContainerBodyStyled = styled.div`
+
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+outline: 0;
+border: 0;
+
+  .first{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
   .first img,
   .second img {
     width: 100% !important;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
   .wrapper {
     height: 100%;
   }
 
-  .second{
+  .second {
     display: flex;
     flex-direction: column;
     justify-content: start;
   }
-
 
   .contain {
     max-width: 1170px;
@@ -73,8 +84,11 @@ const ContainerBodyStyled = styled.div`
       display: grid;
       grid-template-columns: 1.4fr 0.6fr;
       grid-template-rows: 1.5fr;
-      gap: 0 60px;
+      gap: 0 1.875rem;
       grid-template-areas: ". .";
+    }
+    .first img, .second img {
+      margin-bottom: 1.875rem !important;
     }
   }
 `;
