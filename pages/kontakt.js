@@ -10,8 +10,6 @@ import ContainerMain from "../components/ContainerMain";
 export default function Kontakt({ result }) {
 
 
-
-
   return (
     <>
         <ContainerMain>
