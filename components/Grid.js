@@ -26,7 +26,6 @@ function Grid({ projekti, numberOfProjects }) {
 
   return (
     <GridStyled carouselState={carouselState} className="center">
-
       <div className="grid-container">
         {projekti
           .filter((data) => {
@@ -54,7 +53,7 @@ function Grid({ projekti, numberOfProjects }) {
                   className="main"
                 />
                 <img
-                  src={API_URL + projekt.slike[0].formats.small.url}
+                  src={API_URL + projekt.prelazMisem.formats.small.url}
                   alt=""
                   className="hover"
                 />
