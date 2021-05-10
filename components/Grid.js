@@ -82,7 +82,7 @@ const GridStyled = styled.div`
     /* width: 80%; */
   }
   .items {
-    max-height: 16rem !important;
+    max-height: 22rem !important;
     min-width: auto;
     overflow: hidden;
     object-fit: cover;
@@ -145,7 +145,7 @@ const GridStyled = styled.div`
         ". . ."; */
     }
     .items {
-      max-height: 16rem !important;
+      height: 24rem !important;
       min-width: auto;
       overflow: hidden;
       object-fit: cover;
