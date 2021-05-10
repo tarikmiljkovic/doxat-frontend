@@ -138,7 +138,7 @@ const CarouselStyled = styled.div`
     height: 100vh !important;
     overflow: hidden;
     box-sizing:border-box;
-    padding: 10px;
+    position: relative;
   }
   .each-slide > div {
     display: flex;
@@ -193,30 +193,30 @@ const CarouselStyled = styled.div`
     fill: white;
   }
   .mySlides {
-    display: none;
+    /* display: none;
     object-fit: cover;
     object-position: top center;
     width: 100%;
-    height: 100vh;
+    height: 100%; */
   }
   .mySlides img {
     /* vertical-align: middle; */
-    object-fit: cover;
+    /* object-fit: cover;
     object-position: top center;
-    width: 100%;
-    height: 100vh;
+    width: 100%; */
+
   }
 
   /* Slideshow container */
   .slideshow-container {
-    height: 100vh;
+    /* height: 100%;
     width: 100%;
     position: relative;
     margin: auto;
     overflow: hidden;
     object-fit: contain;
 
-    transition: all 1s ease;
+    transition: all 1s ease; */
   }
 
   /* Caption text */
@@ -239,20 +239,7 @@ const CarouselStyled = styled.div`
     top: 0;
   }
 
-  /* The dots/bullets/indicators */
-  .dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
 
-  .active {
-    background-color: #717171;
-  }
 
   /* Fading animation */
   .fade {
@@ -298,8 +285,8 @@ const CarouselStyled = styled.div`
     }
 
     .carousel {
-      height: 100%;
-      width: 100%;
+      /* height: 20 !important;
+      width: 100%; */
     }
   }
 `;
