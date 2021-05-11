@@ -108,7 +108,7 @@ const GridStyled = styled.div`
     object-fit: cover;
     opacity: 0;
 
-    /* transition: opacity 0.01s; */
+    transition: opacity 1s;
   }
   .items:hover img.hover {
     opacity: 1;
