@@ -54,7 +54,7 @@ function Grid({ projekti, numberOfProjects }) {
                   className="main"
                 />
                 <img
-                  src={API_URL + projekt.prelazMisem.formats.small.url}
+                  src={API_URL + projekt.prelazMisem.url}
                   alt=""
                   className="hover"
                 />
