@@ -20,6 +20,9 @@ function Grid({ projekti, numberOfProjects }) {
   let calculateGridRows = Math.ceil(numberOfProjects/3);
 
 
+  console.log(projekti);
+
+
   let router = useRouter();
 
   // console.log(router);
@@ -54,7 +57,7 @@ function Grid({ projekti, numberOfProjects }) {
                   className="main"
                 />
                 <img
-                  src={API_URL + projekt.prelazMisem.formats.small.url}
+                  src={API_URL + projekt.prelazMisem.url}
                   alt=""
                   className="hover"
                 />
