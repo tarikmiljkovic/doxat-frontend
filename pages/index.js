@@ -52,8 +52,8 @@ export async function getStaticProps(context) {
 
   const res = await fetch(
     context.locale == "bs"
-      ? `${API_URL}/Projektis`
-      : `${API_URL}/Projektis?_locale=en`
+      ? `${API_URL}/Projektis?_sort=published_at:DESC`
+      : `${API_URL}/Projektis?_sort=published_at:DESC&_locale=en`
   );
   const projekti = await res.json();
 

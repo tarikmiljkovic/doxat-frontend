@@ -20,7 +20,22 @@ function Grid({ projekti, numberOfProjects }) {
   let calculateGridRows = Math.ceil(numberOfProjects/3);
 
 
-  console.log(projekti);
+  // console.log(typeof projekti);
+
+  let projectsArray = Object.entries(projekti);
+
+   var result = Object.keys(projekti).map(function (key) {
+     // Using Number() to convert key to number type
+     // Using obj[key] to retrieve key value
+
+
+
+
+     return [Number(key), projekti[key]];
+   });
+
+  console.log(result);
+  console.log("eee");
 
 
   let router = useRouter();
@@ -29,6 +44,15 @@ function Grid({ projekti, numberOfProjects }) {
 
   return (
     <GridStyled carouselState={carouselState} className="center">
+      {/* <div>{projectsArray.slice(0).reverse().map((projekt) => {
+        return projekt;
+      })}</div> */}
+
+
+
+
+
+
       <div className="grid-container">
         {projekti
           .filter((data) => {
@@ -115,19 +139,8 @@ const GridStyled = styled.div`
   .items:hover img.hover {
     opacity: 1;
   }
-  .items:hover .bottom {
-    position: none;
-    /* bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px; */
-    box-sizing: border-box;
-    padding: 10px;
-
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    z-index: 999;
-    color: white;
+  .items .hover .bottom {
+    display: none;
   }
   .items:hover .bottom {
     position: absolute;
@@ -136,6 +149,7 @@ const GridStyled = styled.div`
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
+    color: white;
 
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);

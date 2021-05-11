@@ -139,25 +139,30 @@ const OthersStyled = styled.div`
     opacity: 1;
   }
   .items:hover .bottom {
-    position: none;
+    /* position: none; */
     /* bottom: 0;
     left: 0;
     width: 100%;
     height: 40px; */
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: black;
-    z-index: 999;
-    color: white;
+
+    /* background-color: black; */
+  }
+  .items .hover .bottom {
+    display: none;
   }
   .items:hover .bottom {
+    /* box-sizing: border-box; */
     position: absolute;
+    box-sizing: border-box;
     bottom: 0;
     left: 0;
     width: 100%;
-    box-sizing: border-box;
+    z-index: 999;
+    color: white;
     padding: 10px;
-    background-color: black;
+    /* background-color: black; */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   /* Extra small devices (phones, 600px and down) */

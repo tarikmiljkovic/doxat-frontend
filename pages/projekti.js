@@ -36,15 +36,15 @@ export async function getServerSideProps(context) {
 
   const res = await fetch(
     context.locale == "bs"
-      ? `${API_URL}/Projektis`
-      : `${API_URL}/Projektis?_locale=en`
+      ? `${API_URL}/Projektis?_sort=published_at:DESC`
+      : `${API_URL}/Projektis?_sort=published_at:DESC&_locale=en`
   );
   const projekti = await res.json();
 
   const countProjects = await fetch(
     context.locale == "bs"
-      ? `${API_URL}/Projektis/count`
-      : `${API_URL}/Projektis/count?_locale=en`
+      ? `${API_URL}/Projektis?_sort=published_at:DESC`
+      : `${API_URL}/Projektis?_sort=published_at:DESC&_locale=en`
   );
   const numberOfProjects = await countProjects.json();
 
