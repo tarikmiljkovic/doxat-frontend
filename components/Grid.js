@@ -38,6 +38,7 @@ function Grid({ projekti, numberOfProjects }) {
               return data;
             }
           })
+
           .map((projekt, index) => (
             <Link
               key={projekt.id}
