@@ -20,22 +20,6 @@ function Grid({ projekti, numberOfProjects }) {
   let calculateGridRows = Math.ceil(numberOfProjects/3);
 
 
-  // console.log(typeof projekti);
-
-  let projectsArray = Object.entries(projekti);
-
-   var result = Object.keys(projekti).map(function (key) {
-     // Using Number() to convert key to number type
-     // Using obj[key] to retrieve key value
-
-
-
-
-     return [Number(key), projekti[key]];
-   });
-
-  console.log(result);
-  console.log("eee");
 
 
   let router = useRouter();
