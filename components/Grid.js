@@ -108,6 +108,8 @@ const GridStyled = styled.div`
     object-fit: cover;
     opacity: 0;
 
+    /* background-color: rgba(255, 255, 255, 0.5); */
+
     transition: opacity 1s;
   }
   .items:hover img.hover {
@@ -121,7 +123,9 @@ const GridStyled = styled.div`
     height: 40px; */
     box-sizing: border-box;
     padding: 10px;
-    background-color: black;
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     z-index: 999;
     color: white;
   }
@@ -132,7 +136,9 @@ const GridStyled = styled.div`
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
-    background-color: black;
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 
   /* Extra small devices (phones, 600px and down) */
