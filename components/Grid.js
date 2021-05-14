@@ -21,7 +21,6 @@ function Grid({ projekti, numberOfProjects }) {
 
 
 
-
   let router = useRouter();
 
   // console.log(router);
