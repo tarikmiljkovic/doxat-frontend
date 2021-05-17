@@ -69,7 +69,7 @@ export default function Projekt({
               <div>
                 {result.slike.map((slika, index) => (
                   <img
-                    src={API_URL + slika.url}
+                    src={slika.url}
                     alt="doxat sarajevo"
                     key={index}
                   />
@@ -85,7 +85,7 @@ export default function Projekt({
             <div>
               {result.plan.map((slika, index) => (
                 <img
-                  src={API_URL + slika.url}
+                  src={slika.url}
                   alt=""
                   key={index}
                 />
