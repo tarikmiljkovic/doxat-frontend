@@ -30,7 +30,7 @@ function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex
         >
           <a className="items" href="/">
             <img
-              src={API_URL + requestJ[prevProjectIndex].slike[0].url}
+              src={requestJ[prevProjectIndex].slike[0].url}
               alt=""
               className="main"
             />
@@ -50,7 +50,7 @@ function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex
         >
           <a className="items" href="/">
             <img
-              src={API_URL + requestJ[currentProjectIndex].slike[0].url}
+              src={+ requestJ[currentProjectIndex].slike[0].url}
               alt=""
               className="main"
             />
@@ -70,7 +70,7 @@ function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex
         >
           <a className="items" href="/">
             <img
-              src={API_URL + requestJ[nextProjectIndex].slike[0].url}
+              src={+ requestJ[nextProjectIndex].slike[0].url}
               alt=""
               className="main"
             />
