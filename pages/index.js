@@ -57,6 +57,8 @@ export async function getStaticProps(context) {
   );
   const projekti = await res.json();
 
+  console.log(projekti);
+
   return {
     props: { projekti },
     revalidate: 1,

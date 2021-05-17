@@ -9,6 +9,8 @@ import {SiteContext} from "../contexts/SiteContext";
 import Link from 'next/link'
 
 import { useRouter } from "next/router";
+
+
 function Grid({ projekti, numberOfProjects }) {
   const { carouselState } = useContext(SiteContext);
   const { category, setCategory } = useContext(SiteContext);
@@ -18,6 +20,8 @@ function Grid({ projekti, numberOfProjects }) {
   // const { navIcon, changeNavIcon } = useState(`<RiMenuLine/>`);
 
   let calculateGridRows = Math.ceil(numberOfProjects/3);
+
+  console.log(projekti);
 
 
 
