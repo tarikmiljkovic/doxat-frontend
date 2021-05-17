@@ -24,7 +24,7 @@ export default function Software({ result }) {
               <div className="">
                 {result.slike.map((slika, index) => (
                   <img
-                    src={API_URL + slika.url}
+                    src={slika.url}
                     alt=""
                     key={index}
                   />

@@ -16,7 +16,7 @@ export default function Onama({ result }) {
           <Navigation />
           <ContainerBody>
 
-              <img src={API_URL + result.slika.url} alt="" />
+              <img src={result.slika.url} alt="" />
 
               <div
                 dangerouslySetInnerHTML={{

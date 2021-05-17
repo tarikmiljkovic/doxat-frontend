@@ -16,7 +16,7 @@ export default function Kontakt({ result }) {
           <Navigation />
           <ContainerBody>
             <div>
-              <img src={API_URL + result.slika.url} alt="" className="slika" />
+              <img src={result.slika.url} alt="" className="slika" />
             </div>
 
             <div>

@@ -59,12 +59,12 @@ function Grid({ projekti, numberOfProjects }) {
             >
               <a className="items" onClick={() => setPageTranslate("0vh")}>
                 <img
-                  src={API_URL + projekt.skica.url}
+                  src={projekt.skica.url}
                   alt=""
                   className="main"
                 />
                 <img
-                  src={API_URL + projekt.prelazMisem.url}
+                  src={projekt.prelazMisem.url}
                   alt=""
                   className="hover"
                 />
