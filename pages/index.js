@@ -44,7 +44,7 @@ const IndexStyled = styled.div`
   overflow: ${(props) => (props.carouselState ? "hidden" : "visible")};
 `;
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
   // set context locale, default.
 
@@ -61,7 +61,6 @@ export async function getStaticProps(context) {
 
   return {
     props: { projekti },
-    revalidate: 1,
   };
 }
 
