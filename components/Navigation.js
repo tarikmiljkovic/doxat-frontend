@@ -99,7 +99,7 @@ function Main({ requestJ, currentProjectIndex }) {
             <a
               className={
                 router.pathname == "/o-nama" || router.pathname == "/about"
-                  ? "bold nav__listitem"
+                  ? "nav__listitem bold"
                   : "nav__listitem"
               }
               onClick={() => setPageTranslate("0vh")}
@@ -111,7 +111,7 @@ function Main({ requestJ, currentProjectIndex }) {
             <li
               className={
                 router.pathname == "/projekti" || router.pathname == "/projects"
-                  ? "bold nav__listitem"
+                  ? "nav__listitem bold"
                   : "nav__listitem"
               }
               onClick={() => setPageTranslate("0vh")}
@@ -134,7 +134,7 @@ function Main({ requestJ, currentProjectIndex }) {
             <a
               className={
                 router.pathname == "/software"
-                  ? "bold nav__listitem"
+                  ? "nav__listitem bold"
                   : "nav__listitem"
               }
               onClick={() => setPageTranslate("0vh")}
@@ -151,7 +151,7 @@ function Main({ requestJ, currentProjectIndex }) {
             <a
               className={
                 router.pathname == "/kontakt" || router.pathname == "/contact"
-                  ? "bold nav__listitem"
+                  ? "nav__listitem bold"
                   : "nav__listitem"
               }
               onClick={() => setPageTranslate("0vh")}
@@ -212,7 +212,10 @@ const MainStyled = styled.div`
     text-decoration: none;
   }
   li.bold, .bold {
-    font-weight: 600 !important;
+    /* font-weight: 600 !important; */
+    /* text-shadow: 0 1px black, 0 -1px black, ; */
+    text-stroke: 0.044rem black;
+    -webkit-text-stroke: 0.044rem black;
     list-style: none;
     /* padding: 0.5rem 1rem;
     border-radius: 0.2rem; */
@@ -229,6 +232,7 @@ const MainStyled = styled.div`
     align-items: center;
     gap: 2rem;
     margin: 0 0rem;
+    box-sizing: border-box;
   }
   .nav__listlogo {
     list-style: none;
@@ -250,12 +254,16 @@ const MainStyled = styled.div`
   }
   .nav__listitem {
     list-style-type: none;
-    font-weight: bold;
     position: relative;
     padding: 1.5625rem 0.625rem;
     cursor: pointer;
     font-weight: 400;
+    margin: 0;
   }
+  .bold{
+
+  }
+
   .nav__listitem::after {
     content: "";
     width: 0;
@@ -309,6 +317,7 @@ const MainStyled = styled.div`
   .mobileNavToggler{
     display: none;
   }
+
 @media only screen and (max-width: 600px) {
   nav{
     flex-wrap: wrap;
@@ -319,7 +328,8 @@ const MainStyled = styled.div`
     margin: 0;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    align-content: center;
     gap: 0;
 
 
