@@ -2,7 +2,6 @@
 // import styles from '../styles/Home.module.css'
 const { API_URL } = process.env;
 
-import Wrapper from "../components/Wrapper";
 import Navigation from "../components/Navigation";
 import Carousel from "../components/Carousel";
 import TranslateDown from "../components/TranslateDown";
@@ -15,12 +14,11 @@ import { SiteContext } from "../contexts/SiteContext";
 import { useRouter } from "next/router";
 import styled from "@emotion/styled";
 
-export default function Home({ projekti }) {
+export default function Home({ projekti, numberOfProjects }) {
   let router = useRouter();
 
-      const { carouselState } = useContext(SiteContext);
-      const { pageTranslate } = useContext(SiteContext);
-
+  const { carouselState } = useContext(SiteContext);
+  const { pageTranslate } = useContext(SiteContext);
 
   return (
     <IndexStyled carouselState={carouselState} pageTranslate={pageTranslate}>
@@ -28,10 +26,9 @@ export default function Home({ projekti }) {
       <TranslateDown />
       <ContainerMain>
         <Navigation />
-        <Grid projekti={projekti} />
+        <Grid projekti={projekti} numberOfProjects={numberOfProjects} />
         <Footer />
       </ContainerMain>
-      {/* </div> */}
     </IndexStyled>
   );
 }
@@ -40,15 +37,10 @@ const IndexStyled = styled.div`
   /* height: calc(100% - 100vh); */
   overflow: hidden;
   max-height: 100vh;
-  // This must be constained,because of the translateY on the index.js page
   overflow: ${(props) => (props.carouselState ? "hidden" : "visible")};
 `;
 
 export async function getServerSideProps(context) {
-
-  // set context locale, default.
-
-  // console.log(context.locale);
 
   const res = await fetch(
     context.locale == "bs"
@@ -57,10 +49,18 @@ export async function getServerSideProps(context) {
   );
   const projekti = await res.json();
 
-  console.log(projekti);
+    const countProjects = await fetch(
+      context.locale == "bs"
+        ? `${API_URL}/Projektis?_sort=published_at:DESC`
+        : `${API_URL}/Projektis?_sort=published_at:DESC&_locale=en`
+    );
+    const numberOfProjects = await countProjects.json();
+
+  // console.log(projekti);
 
   return {
-    props: { projekti },
+    props: { projekti, numberOfProjects },
+    // revalidate: 1
   };
 }
 

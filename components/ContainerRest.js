@@ -63,12 +63,12 @@ const ContainerBodyStyled = styled.div`
 
   .grid-container {
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     gap: 0px 0px;
     grid-template-areas:
-      "."
-      ".";
+      "first"
+      "second";
   }
 
   p:first-of-type {

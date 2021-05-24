@@ -10,7 +10,7 @@ function ContainerMain({children}) {
     const { carouselState } = useContext(SiteContext);
     const { pageTranslate } = useContext(SiteContext);
 
-    // console.log(carouselState);
+    const onlyThisPageTranslate = pageTranslate;
 
     useEffect(() => {}, []);
 
@@ -18,18 +18,15 @@ function ContainerMain({children}) {
       <ContainerMainStyled
         carouselState={carouselState}
         pageTranslate={pageTranslate}
+        onlyThisPageTranslate={onlyThisPageTranslate}
       >
         {children}
       </ContainerMainStyled>
     );
 }
 
-
-
 const ContainerMainStyled = styled.div`
-  transform: translateY(${(props) => props.pageTranslate});
-  /* height: ${(props) => (props.pageTranslate ? "100%" : "100%")}; */
-  /* height: calc('100%' - '100vh'); */
+  transform: translateY(${(props) => props.onlyThisPageTranslate});
   overflow: ${(props) => (props.carouselState ? "hidden" : "visible")};
   transition-duration: 1s;
   transition-delay: 0.6s;

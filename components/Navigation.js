@@ -211,15 +211,19 @@ const MainStyled = styled.div`
   a:link {
     text-decoration: none;
   }
+
   li.bold, .bold {
     /* font-weight: 600 !important; */
     /* text-shadow: 0 1px black, 0 -1px black, ; */
-    text-stroke: 0.044rem black;
-    -webkit-text-stroke: 0.044rem black;
     list-style: none;
     /* padding: 0.5rem 1rem;
     border-radius: 0.2rem; */
     transition: background-color 100ms ease-in-out;
+  }
+
+  .bold{
+      text-stroke: 0.044rem black;
+      -webkit-text-stroke: 0.044rem black;
   }
   .nav {
     width: 100%;
@@ -249,7 +253,6 @@ const MainStyled = styled.div`
   }
   .nav__listlogo svg:hover,
   .nav__listlogo svg:focus {
-    /* fill: #f06292; */
     fill: black;
   }
   .nav__listitem {
@@ -259,9 +262,6 @@ const MainStyled = styled.div`
     cursor: pointer;
     font-weight: 400;
     margin: 0;
-  }
-  .bold{
-
   }
 
   .nav__listitem::after {
@@ -282,9 +282,17 @@ const MainStyled = styled.div`
   .nav__listitem:hover ul,
   .nav__listitem:focus ul {
     opacity: 1;
-    visibility: carouselState;
+    /* visibility: carouselState; */
+    visibility: visible;
   }
+  .nav__listitemdrop a:hover{
+    /* visibility: visible; */
+    font-weight: bold;
+  }
+
   .nav__listitemdrop {
+    text-stroke: 0 black;
+    -webkit-text-stroke: 0 black;
     position: absolute;
     top: 4rem;
     left: 0.625rem;
@@ -308,7 +316,7 @@ const MainStyled = styled.div`
     transition: background-color 100ms ease-in-out;
   }
   .nav__listitemdrop a:hover{
-    font-weight: 600;
+    /* font-weight: 600; */
   }
   .nav__listitemdrop li:hover,
   .nav__listitemdrop li:focus {

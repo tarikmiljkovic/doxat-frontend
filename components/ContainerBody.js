@@ -27,6 +27,16 @@ const ContainerBodyStyled = styled.div`
   outline: 0;
   border: 0;
 
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 0px 0px;
+    grid-template-areas:
+      "first"
+      "second";
+  }
+
   .first {
     display: flex;
     flex-direction: column;
@@ -52,16 +62,6 @@ const ContainerBodyStyled = styled.div`
   .contain {
     max-width: 1170px;
     margin: 0 auto;
-  }
-
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
-    gap: 0px 0px;
-    grid-template-areas:
-      "."
-      ".";
   }
 
   p:first-of-type {

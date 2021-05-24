@@ -10,12 +10,15 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 
 import { useRouter } from "next/router";
-function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex }) {
+function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex }) {
   let router = useRouter();
 
+
+  // console.log(currentProjectIndex);
+  // console.log(nextProjectIndex);
+  // console.log(prevProjectIndex);
+
   return (
-
-
     <OthersStyled>
       <div className="heading">
         <hr />
@@ -23,54 +26,45 @@ function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex
       </div>
       <div className="grid-container">
         <Link
-          key={requestJ[prevProjectIndex].id}
+          key={prevProjectIndex + 120}
           className="relative"
           href={`/projekti/${requestJ[prevProjectIndex].id}`}
           as={`/projekti/${requestJ[prevProjectIndex].id}`}
         >
-          <a className="items" href="/">
+          <a className="items">
             <img
               src={requestJ[prevProjectIndex].slike[0].url}
               alt=""
               className="main"
             />
-            {/* <img
-            src={API_URL + projekt.slike[0].formats.small.url}
-            alt=""
-            className="hover"
-          /> */}
             <div className="bottom">{requestJ[prevProjectIndex].naziv}</div>
           </a>
         </Link>
         <Link
-          key={requestJ[currentProjectIndex].id}
+          key={prevProjectIndex + 100}
           className="relative"
           href={`/projekti/${requestJ[currentProjectIndex].id}`}
           as={`/projekti/${requestJ[currentProjectIndex].id}`}
         >
-          <a className="items" href="/">
+          <a className="items">
             <img
-              src={+ requestJ[currentProjectIndex].slike[0].url}
+              src={requestJ[currentProjectIndex].slike[0].url}
               alt=""
               className="main"
             />
-            {/* <img
-            src={API_URL + projekt.slike[0].formats.small.url}
-            alt=""
-            className="hover"
-          /> */}
+
             <div className="bottom">{requestJ[currentProjectIndex].naziv}</div>
           </a>
         </Link>
         <Link
-          key={requestJ[nextProjectIndex].id}
+          key={nextProjectIndex + 110}
           className="relative"
           href={`/projekti/${requestJ[nextProjectIndex].id}`}
           as={`/projekti/${requestJ[nextProjectIndex].id}`}
         >
-          <a className="items" href="/">
+          <a className="items">
             <img
-              src={+ requestJ[nextProjectIndex].slike[0].url}
+              src={requestJ[nextProjectIndex].slike[0].url}
               alt=""
               className="main"
             />
@@ -84,7 +78,6 @@ function Grid({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex
         </Link>
       </div>
     </OthersStyled>
-
   );
 }
 
@@ -201,4 +194,4 @@ const OthersStyled = styled.div`
   }
 `;
 
-export default Grid;
+export default OtherProjects;

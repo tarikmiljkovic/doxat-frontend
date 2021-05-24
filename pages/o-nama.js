@@ -12,21 +12,19 @@ export default function Onama({ result }) {
   return (
     <>
       {/* <Wrapper> */}
-        <ContainerMain>
-          <Navigation />
-          <ContainerBody>
+      <ContainerMain>
+        <Navigation />
+        <ContainerBody>
+          <img src={result.slika.url} alt="" />
 
-              <img src={result.slika.url} alt="" />
-
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: result.opis,
-                }}
-              ></div>
-
-          </ContainerBody>
-          <Footer />
-        </ContainerMain>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: result.opis,
+            }}
+          ></div>
+        </ContainerBody>
+        <Footer />
+      </ContainerMain>
       {/* </Wrapper> */}
     </>
   );

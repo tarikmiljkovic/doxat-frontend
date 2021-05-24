@@ -24,7 +24,7 @@ export default function Projekt({
   // let router = useRouter();
   // const { carouselState, mutateCarousel } = useContext(SiteContext);
 
-  // console.log(result);
+  console.log(result);
 
   function countIndex(index) {
     if (index == 0) {
@@ -40,8 +40,8 @@ export default function Projekt({
 
   function otherProjects() {
     // const isLoggedIn = props.isLoggedIn;
+    // if (currentProjectIndex || nextProjectIndex \\ prevProjectIndex) {
 
-    if (currentProjectIndex && nextProjectIndex && prevProjectIndex) {
       return (
         <OtherProjects
           requestJ={requestJ}
@@ -50,7 +50,7 @@ export default function Projekt({
           prevProjectIndex={prevProjectIndex}
         ></OtherProjects>
       );
-    }
+    // }
     return <></>;
   }
 
@@ -86,7 +86,7 @@ export default function Projekt({
               {result.plan.map((slika, index) => (
                 <img
                   src={slika.url}
-                  alt=""
+                  alt="doxat"
                   key={index}
                 />
               ))}
@@ -117,7 +117,7 @@ export async function getServerSideProps(context) {
   );
   const result = await res.json();
 
-  // Get next and prev
+  // get the Whole
   let request = {};
   if (context.locale == "bs") {
     request = await fetch(`${publicRuntimeConfig.API_URL}/Projektis/`);
@@ -130,8 +130,10 @@ export async function getServerSideProps(context) {
 
   // console.log(context.params.id);
   let currentProjectIndex = requestJ.findIndex(
-    (elem) => elem.id == context.params.id
+    (elem) => (elem.id == context.params.id)
   );
+
+
 
   let nextProjectIndex =
     requestJ[currentProjectIndex + 1] == undefined
@@ -149,7 +151,8 @@ export async function getServerSideProps(context) {
 
   // console.log(requestJ[1].id);
 
-  // console.log(myKeys);
+
+  // console.log(nextProjectIndex);
 
   return {
     props: {
