@@ -82,7 +82,7 @@ const ContainerBodyStyled = styled.div`
   @media only screen and (min-width: 600px) {
     .grid-container {
       display: grid;
-      grid-template-columns: 1.4fr 0.6fr;
+      grid-template-columns: 2fr 1fr;
       grid-template-rows: 1.5fr;
       gap: 0 1.875rem;
       grid-template-areas: ". .";

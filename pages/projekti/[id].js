@@ -97,32 +97,6 @@ export default function Projekt({
 
 
           <div>
-            {/* <div>
-              {typeof requestJ[result.id - 1] == undefined ? (
-                ""
-              ) : (
-                <div>
-                  {" "}
-                  <a
-                    href={`/projekti/${requestJ[result.id - 1].id}`}
-                    as={`/projekti/${requestJ[result.id - 1].id}`}
-                  >
-                    <img
-                      src={
-                        API_URL +
-                        requestJ[result.id - 1].skica.formats.thumbnail.url
-                      }
-                      alt=""
-                    />
-                  </a>
-                </div>
-              )}
-            </div>
-            <div>
-              {typeof requestJ[result.id + 1] == undefined
-                ? ""
-                : requestJ[result.id + 1].skica.formats.thumbnail.url}
-            </div> */}
           </div>
           <Footer />
         </ContainerMain>
