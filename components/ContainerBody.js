@@ -22,17 +22,17 @@ export default function ContainerBody(props) {
 
 
 const ContainerBodyStyled = styled.div`
-
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   outline: 0;
   border: 0;
 
-  .first{
+  .first {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    grid-area: first;
   }
   .first img,
   .second img {
@@ -47,6 +47,7 @@ const ContainerBodyStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: start;
+    grid-area: second;
   }
 
   .contain {
@@ -82,12 +83,13 @@ const ContainerBodyStyled = styled.div`
   @media only screen and (min-width: 600px) {
     .grid-container {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1.5fr;
       gap: 0 1.875rem;
-      grid-template-areas: ". .";
+      grid-template-areas: "first first second";
     }
-    .first img, .second img {
+    .first img,
+    .second img {
       margin-bottom: 1.875rem !important;
     }
   }
