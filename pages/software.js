@@ -4,7 +4,7 @@ const { API_URL } = process.env;
 import Wrapper from "../components/Wrapper";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import ContainerBody from "../components/ContainerBody";
+import ContainerRest from "../components/ContainerRest";
 import ContainerMain from "../components/ContainerMain";
 
 export default function Software({ result }) {
@@ -15,32 +15,23 @@ export default function Software({ result }) {
   // console.log(result);
   return (
     <>
+      <ContainerMain>
+        <Navigation />
+        <ContainerRest>
 
-        <ContainerMain>
-          <Navigation />
-          <ContainerBody>
+            {result.slike.map((slika, index) => (
+              <img src={slika.url} alt="" key={index} />
+            ))}
 
 
-              <div className="">
-                {result.slike.map((slika, index) => (
-                  <img
-                    src={slika.url}
-                    alt=""
-                    key={index}
-                  />
-                ))}
-              </div>
-
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: result.opis,
-                }}
-              ></div>
-
-          </ContainerBody>
-          <Footer />
-        </ContainerMain>
-
+          <div
+            dangerouslySetInnerHTML={{
+              __html: result.opis,
+            }}
+          ></div>
+        </ContainerRest>
+        <Footer />
+      </ContainerMain>
     </>
   );
 }
@@ -49,7 +40,6 @@ export default function Software({ result }) {
 
 export async function getStaticProps(context) {
   // set context locale, default.
-
   // console.log(context.locale);
 
   const res = await fetch(

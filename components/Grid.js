@@ -1,12 +1,12 @@
 
 
-const { API_URL } = process.env;
+// const { API_URL } = process.env;
 
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
 import { useContext } from "react";
 import {SiteContext} from "../contexts/SiteContext";
 import Link from 'next/link'
+import { jsx } from "@emotion/react";
 
 import { useRouter } from "next/router";
 
@@ -16,34 +16,22 @@ function Grid({ projekti, numberOfProjects }) {
   const { category, setCategory } = useContext(SiteContext);
   const { pageTranslate, setPageTranslate } = useContext(SiteContext);
 
-  // const [startIcon, changeIcon] = useState(true);
-  // const { navIcon, changeNavIcon } = useState(`<RiMenuLine/>`);
 
-  let calculateGridRows = Math.ceil(numberOfProjects/3);
-
-  console.log(projekti);
-
-
+  let calculateGridRows = Math.ceil(numberOfProjects.length/3);
 
   let router = useRouter();
 
-  // console.log(router);
 
   return (
-    <GridStyled carouselState={carouselState} className="center">
-      {/* <div>{projectsArray.slice(0).reverse().map((projekt) => {
-        return projekt;
-      })}</div> */}
-
-
-
-
-
-
+    <GridStyled
+      carouselState={carouselState}
+      numberOfProjects={numberOfProjects.length}
+      calculateGridRows={calculateGridRows}
+      className="center"
+    >
       <div className="grid-container">
         {projekti
           .filter((data) => {
-            // console.log(data);
             if (category == "svi") {
               return data;
             } else if (category == "ideja" && data.faza == category) {
@@ -62,16 +50,8 @@ function Grid({ projekti, numberOfProjects }) {
               as={`/projekti/${projekt.id}`}
             >
               <a className="items" onClick={() => setPageTranslate("0vh")}>
-                <img
-                  src={projekt.skica.url}
-                  alt=""
-                  className="main"
-                />
-                <img
-                  src={projekt.prelazMisem.url}
-                  alt=""
-                  className="hover"
-                />
+                <img src={projekt.skica.url} alt="" className="main" />
+                <img src={projekt.prelazMisem.url} alt="" className="hover" />
                 <div className="bottom">{projekt.naziv}</div>
               </a>
             </Link>
@@ -85,16 +65,12 @@ const GridStyled = styled.div`
   .grid-container {
     display: grid;
     grid-template-columns: repeat(1, auto);
-    grid-template-rows: repeat(1, auto);
-    gap: 1rem;
-    gap: 1.25rem 0;
+    grid-template-rows: repeat(${(props) => props.numberOfProjects}, 1fr);
+    gap: 1.25rem;
     margin: 0 auto;
     height: auto;
   }
-  .center {
-    /* margin: 0 auto; */
-    /* width: 80%; */
-  }
+
   .items {
     max-height: 22rem !important;
     min-width: auto;
@@ -107,7 +83,6 @@ const GridStyled = styled.div`
     object-fit: cover;
     width: 100%;
     height: 100%;
-
     object-position: center;
   }
   .items img.hover {
@@ -118,9 +93,6 @@ const GridStyled = styled.div`
     bottom: 0;
     object-fit: cover;
     opacity: 0;
-
-    /* background-color: rgba(255, 255, 255, 0.5); */
-
     transition: opacity 1s;
   }
   .items:hover img.hover {
@@ -138,21 +110,21 @@ const GridStyled = styled.div`
     padding: 10px;
     color: white;
 
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
   }
 
-  /* Extra small devices (phones, 600px and down) */
   @media only screen and (min-width: 600px) {
     .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(calculateGridRows, 1fr);
+      grid-template-rows: repeat(${(props) => props.calculateGridRows}, 1fr);
       gap: 1.85rem;
-      /* grid-template-areas:
-        ". . ."
-        ". . ."
-        ". . ."; */
     }
     .items {
       height: 24rem !important;
@@ -165,23 +137,9 @@ const GridStyled = styled.div`
       height: 100%;
     }
   }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-  }
-
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-  }
-
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-  }
-
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-  }
 `;
+
+
 
 
 
