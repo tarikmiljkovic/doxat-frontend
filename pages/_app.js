@@ -9,6 +9,9 @@ const theme = {
   colors: {
     primary: "#333",
   },
+  strong:{
+    fontWeight: 'bold',
+  },
 };
 
 function MyApp({ Component, pageProps }) {

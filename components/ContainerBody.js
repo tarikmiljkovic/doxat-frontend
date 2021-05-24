@@ -3,7 +3,6 @@
 import styled from "@emotion/styled";
 export default function ContainerBody(props) {
 
-  // console.log(props.children);
   return (
     <>
       <ContainerBodyStyled>
