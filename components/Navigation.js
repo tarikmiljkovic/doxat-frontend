@@ -247,7 +247,7 @@ const MainStyled = styled.div`
   }
   .nav__listlogo svg {
     /* width: 7.5rem; */
-    height: 2.5rem;
+    height: 2.2rem;
     transition: fill 100ms ease-in;
 
   }
