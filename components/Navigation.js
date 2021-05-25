@@ -59,6 +59,7 @@ function Main({ requestJ, currentProjectIndex }) {
             {/* <img src="/logo.svg" alt=""/> */}
             <Link href="/" locale={router.locale}>
               <a
+                className="logoLink"
                 onClick={() => {
                   mutateCarousel(true);
                   setPageTranslate("0vh");
@@ -244,10 +245,15 @@ const MainStyled = styled.div`
     cursor: pointer;
     padding-top: 24px;
 
+
+  }
+  .logoLink{
+    height: auto;
+    display: block;
   }
   .nav__listlogo svg {
     /* width: 7.5rem; */
-    height: 2.2rem;
+    height: 2.5rem;
     transition: fill 100ms ease-in;
 
   }
@@ -331,6 +337,12 @@ const MainStyled = styled.div`
     flex-wrap: wrap;
     margin: 14px 0 !important;
   }
+
+  .logoLink{
+    height: 2.2rem;
+    display: block;
+  }
+
   .nav__list{
     width: 100%;
     margin: 0;
