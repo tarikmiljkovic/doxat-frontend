@@ -13,9 +13,15 @@ class MyDocument extends Document {
           <title>Doxat</title>
 
           <meta name="description" content="Doxat Arhitektonski Studio" />
+          <meta name="author" content="Tarik Miljkovic" />
 
           <meta property="og:url" content="https://doxat.ba" />
           <meta property="og:site_name" content="Doxat Arhitektonski Studio" />
+          <meta
+            name="keywords"
+            content="arhitekta sarajevo arhitecture arhitektura doxat bih bosnia building construction village city facade"
+          />
+
           <meta property="og:locale" content="bs_BA" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Doxat Arhitektonski Studio" />
@@ -29,10 +35,7 @@ class MyDocument extends Document {
             content="Doxat Arhitektonski Studio"
           />
           <meta property="og:image" content="images/doxat-1.jpg" />
-          <meta
-            property="og:url"
-            content="http://doxat.ba"
-          />
+          <meta property="og:url" content="http://doxat.ba" />
 
           <link rel="icon" href="favicon.ico" />
 
