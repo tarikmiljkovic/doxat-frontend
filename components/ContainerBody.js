@@ -48,6 +48,13 @@ const ContainerBodyStyled = styled.div`
     width: 100% !important;
     margin-bottom: 1.25rem;
   }
+  .second p {
+    margin-bottom: 1.25rem;
+    /* font-weight: 300; */
+  }
+  .second strong {
+    font-weight: bold;
+  }
   .wrapper {
     height: 100%;
   }

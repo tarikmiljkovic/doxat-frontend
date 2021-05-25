@@ -7,7 +7,7 @@ import {SiteContext} from "../contexts/SiteContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { RiMenuLine, RiMenu4Fill } from "react-icons/ri";
-
+import { GrInstagram, GrFacebook } from "react-icons/gr";
 
 import bs from "../locales/bs";
 import en from "../locales/en";
@@ -30,8 +30,23 @@ function Footer() {
       <footer>
         <div>
           <p>
-            <b>Doxat</b> {t.ltd}
+            <b>doxat</b> {t.ltd}
           </p>
+        </div>
+        <div>
+          <Link href="https://www.instagram.com/doxat_design/">
+            <a className="gerade">
+              <GrInstagram />
+            </a>
+          </Link>
+          <a >Instagram</a>
+          <br />
+          <Link href="https://www.instagram.com/doxat_design/">
+            <a className="gerade">
+              <GrFacebook />
+            </a>
+          </Link>
+          <a >Facebook</a>
         </div>
         <div>
           <address>
@@ -69,8 +84,14 @@ const FooterStyled = styled.div`
     flex-direction: row;
     padding: 20px 0;
     flex-wrap: wrap;
+    font-size: 1rem;
   }
 
+  .gerade {
+    display: inline-block;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
   footer p:first-of-type {
     margin-top: 0;
   }
@@ -126,22 +147,6 @@ const FooterStyled = styled.div`
     footer {
       padding: 48px 0;
     }
-  }
-
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-  }
-
-  /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (min-width: 768px) {
-  }
-
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-  }
-
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
   }
 `;
 
