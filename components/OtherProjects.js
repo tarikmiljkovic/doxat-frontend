@@ -157,8 +157,13 @@ const OthersStyled = styled.div`
     color: white;
     padding: 10px;
     /* background-color: black; */
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
   }
 
   /* Extra small devices (phones, 600px and down) */
