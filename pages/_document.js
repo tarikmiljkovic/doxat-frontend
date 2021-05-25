@@ -10,8 +10,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* <title>Doxat</title> */}
-          <link rel="icon" href="/favicon.ico" />
+          <title>Doxat</title>
+          <link rel="icon" href="favicon.ico" />
           <div>
             <link
               rel="apple-touch-icon"
@@ -82,7 +82,7 @@ class MyDocument extends Document {
               sizes="16x16"
               href="favicons/favicon-16x16.png"
             />
-            <link rel="manifest" href="/manifest.json" />
+            <link rel="manifest" href="favicons/manifest.json" />
             <meta name="msapplication-TileColor" content="#ffffff" />
             <meta
               name="msapplication-TileImage"
