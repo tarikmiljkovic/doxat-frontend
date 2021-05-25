@@ -102,10 +102,6 @@ const OthersStyled = styled.div`
   hr {
     border: 0.5px solid #c0c0c0;
   }
-  .center {
-    /* margin: 0 auto; */
-    /* width: 80%; */
-  }
   .items {
     max-height: 20rem;
     min-width: auto;
@@ -134,29 +130,20 @@ const OthersStyled = styled.div`
   .items:hover img.hover {
     opacity: 1;
   }
-  .items:hover .bottom {
-    /* position: none; */
-    /* bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px; */
 
-    /* background-color: black; */
-  }
   .items .hover .bottom {
     display: none;
   }
-  .items:hover .bottom {
-    /* box-sizing: border-box; */
+  .items:hover div.bottom {
     position: absolute;
-    box-sizing: border-box;
+    display: block;
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
-    color: white;
+    box-sizing: border-box;
     padding: 10px;
-    /* background-color: black; */
+    color: white;
+
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
