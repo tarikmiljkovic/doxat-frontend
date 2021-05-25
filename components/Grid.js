@@ -124,7 +124,7 @@ const GridStyled = styled.div`
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(${(props) => props.calculateGridRows}, 1fr);
-      gap: 1.85rem;
+      gap: 1.875rem;
     }
     .items {
       height: 24rem !important;

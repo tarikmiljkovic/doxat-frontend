@@ -13,6 +13,9 @@ import { useRouter } from "next/router";
 function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevProjectIndex }) {
   let router = useRouter();
 
+  // 18.06
+  //
+
 
   // console.log(currentProjectIndex);
   // console.log(nextProjectIndex);
