@@ -24,7 +24,6 @@ export default function Projekt({
   // let router = useRouter();
   // const { carouselState, mutateCarousel } = useContext(SiteContext);
 
-  console.log(result);
 
   function countIndex(index) {
     if (index == 0) {

@@ -17,6 +17,16 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
   //
 
 
+
+  // console.log(requestJ[currentProjectIndex].slike[1]);
+
+  let prev = requestJ[prevProjectIndex];
+  let curr = requestJ[currentProjectIndex];
+  let next = requestJ[nextProjectIndex];
+
+  console.log(prev.slike[0].formats.medium.url);
+
+
   // console.log(currentProjectIndex);
   // console.log(nextProjectIndex);
   // console.log(prevProjectIndex);
@@ -31,52 +41,62 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
         <Link
           key={prevProjectIndex + 120}
           className="relative"
-          href={`/projekti/${requestJ[prevProjectIndex].id}`}
-          as={`/projekti/${requestJ[prevProjectIndex].id}`}
+          href={`/projekti/${prev.id}`}
+          as={`/projekti/${prev.id}`}
         >
           <a className="items">
             <img
-              src={requestJ[prevProjectIndex].slike[0].url}
+              src={prev.slike[0].formats.medium.url}
               alt=""
               className="main"
             />
-            <div className="bottom">{requestJ[prevProjectIndex].naziv}</div>
+            <img
+              src={prev.prelazMisem.formats.medium.url}
+              alt=""
+              className="hover"
+            />
+            <div className="bottom">{prev.naziv}</div>
           </a>
         </Link>
         <Link
           key={prevProjectIndex + 100}
           className="relative"
-          href={`/projekti/${requestJ[currentProjectIndex].id}`}
-          as={`/projekti/${requestJ[currentProjectIndex].id}`}
+          href={`/projekti/${curr.id}`}
+          as={`/projekti/${curr.id}`}
         >
           <a className="items">
             <img
-              src={requestJ[currentProjectIndex].slike[0].url}
+              src={curr.slike[0].formats.medium.url}
               alt=""
               className="main"
             />
+            <img
+              src={curr.prelazMisem.formats.medium.url}
+              alt=""
+              className="hover"
+            />
 
-            <div className="bottom">{requestJ[currentProjectIndex].naziv}</div>
+            <div className="bottom">{curr.naziv}</div>
           </a>
         </Link>
         <Link
           key={nextProjectIndex + 110}
           className="relative"
-          href={`/projekti/${requestJ[nextProjectIndex].id}`}
-          as={`/projekti/${requestJ[nextProjectIndex].id}`}
+          href={`/projekti/${next.id}`}
+          as={`/projekti/${next.id}`}
         >
           <a className="items">
             <img
-              src={requestJ[nextProjectIndex].slike[0].url}
+              src={next.slike[0].formats.medium.url}
               alt=""
               className="main"
             />
-            {/* <img
-            src={API_URL + projekt.slike[0].formats.small.url}
-            alt=""
-            className="hover"
-          /> */}
-            <div className="bottom">{requestJ[nextProjectIndex].naziv}</div>
+            <img
+              src={next.prelazMisem.formats.medium.url}
+              alt=""
+              className="hover"
+            />
+            <div className="bottom">{next.naziv}</div>
           </a>
         </Link>
       </div>
