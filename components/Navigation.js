@@ -354,21 +354,19 @@ const MainStyled = styled.div`
 
 
   }
+
   .nav__listitem{
-    padding: 1.1rem 0 !important;
+    margin: 0.7rem 0 !important;
   }
-  .mylogo img{
-
-    /* padding: 0 0.625rem;
-    left: 0.625rem; */
-
-  }
+ /* .nav__listitem:first-of-type{
+    padding: 3rem 0 !important;
+  } */
 
   /*  */
   .nav__listlogo{
     flex-basis: 1;
     padding: 0;
-
+    height: 2.5rem;
   }
   .mobileNavToggler{
     flex-basis: 1;
