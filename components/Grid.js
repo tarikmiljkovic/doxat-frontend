@@ -50,8 +50,8 @@ function Grid({ projekti, numberOfProjects }) {
               as={`/projekti/${projekt.id}`}
             >
               <a className="items" onClick={() => setPageTranslate("0vh")}>
-                <img src={projekt.skica.url} alt="" className="main" />
-                <img src={projekt.prelazMisem.url} alt="" className="hover" />
+                <img src={projekt.skica.formats.medium.url} alt="" className="primary"/>
+                <img src={projekt.prelazMisem.formats.medium.url} alt="" className="secondary" />
                 <div className="bottom">{projekt.naziv}</div>
               </a>
             </Link>
@@ -72,37 +72,45 @@ const GridStyled = styled.div`
   }
 
   .items {
-    max-height: 22rem !important;
+    height: 22rem !important;
+
     min-width: auto;
     overflow: hidden;
     object-fit: cover;
     object-position: center;
     position: relative;
   }
+
+  .primary {
+  }
+
   .items img {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
     object-position: center;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10;
   }
-  .items img.hover {
+  .items .secondary {
     position: absolute;
     top: 0;
-    right: 0;
     left: 0;
-    bottom: 0;
-    object-fit: cover;
-    opacity: 0;
+    z-index: 30 !important;
     transition: opacity 1s;
+    opacity: 0;
+    display: none;
   }
-  .items:hover img.hover {
+  .items:hover img.secondary {
     opacity: 1;
+    display: block;
   }
-  .items .hover .bottom {
+  .items > .bottom {
     display: none;
   }
   .items:hover .bottom {
+    display: block !important;
     position: absolute;
+    z-Index: 50;
     bottom: 0;
     left: 0;
     width: 100%;
