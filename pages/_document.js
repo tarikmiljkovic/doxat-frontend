@@ -11,6 +11,45 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <title>Doxat</title>
+          <div>
+            <meta
+              name="description"
+              content="Doxat Arhitektonski Studio"
+            />
+
+            <meta property="og:url" content="https://doxat.ba" />
+            <meta
+              property="og:site_name"
+              content="Doxat Arhitektonski Studio"
+            />
+            <meta property="og:locale" content="bs_BA" />
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="Doxat Arhitektonski Studio" />
+            <meta
+              name="twitter:card"
+              content="Doxat Arhitektonski Studio"
+            />
+            <meta name="twitter:title" content="Doxat Arhitektonski Studio" />
+            {/* Social Media */}
+            <meta property="og:title" content="Doxat Arhitektonski Studio" />
+            <meta
+              property="og:site_name"
+              content="Doxat Arhitektonski Studio"
+            />
+            <meta
+              property="og:description"
+              content="Doxat Arhitektonski Studio"
+            />
+            {/* <meta
+              property="og:image"
+              content="http://privredausk.gov.ba/wp-content/themes/privreda/assets/img/jpg/logo.svg"
+            />
+            <meta
+              property="og:url"
+              content="http://privredausk.gov.ba/wp-content/themes/privreda"
+            />
+          </div> */}
+
           <link rel="icon" href="favicon.ico" />
           <div>
             <link
