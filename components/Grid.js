@@ -79,6 +79,7 @@ const GridStyled = styled.div`
     object-fit: cover;
     object-position: center;
     position: relative;
+    transition: all .2s ease-in-out;
   }
 
   .primary {
@@ -90,33 +91,38 @@ const GridStyled = styled.div`
     width: 100% !important;
     height: 100% !important;
     z-index: 10;
+    transition: all .2s ease-in-out;
   }
   .items .secondary {
     position: absolute;
     top: 0;
     left: 0;
     z-index: 30 !important;
-    transition: opacity 1s;
+    transition: all .2s ease-in-out;
     opacity: 0;
-    display: none;
+    /* display: none; */
+    transition: all .2s ease-in-out;
   }
   .items:hover img.secondary {
     opacity: 1;
     display: block;
+    transition: all .2s ease-in-out;
   }
   .items > .bottom {
-    display: none;
+    /* display: none; */
+    font-size: 1.1rem;
   }
   .items:hover .bottom {
     display: block !important;
     position: absolute;
-    z-Index: 50;
+    z-index: 50;
     bottom: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
     color: white;
+    transition: all .2s ease-in-out;
 
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       -webkit-backdrop-filter: blur(10px);
