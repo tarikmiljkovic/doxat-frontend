@@ -21,7 +21,7 @@ class MyDocument extends Document {
             content="arhitekta sarajevo arhitecture arhitektura doxat bih bosnia building construction village city facade"
           />
 
-          <meta property="og:locale" content="bs_BA" />
+          {/* <meta property="og:locale" content="bs_BA" /> */}
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Doxat Arhitektonski Studio" />
           <meta name="twitter:card" content="Doxat Arhitektonski Studio" />
