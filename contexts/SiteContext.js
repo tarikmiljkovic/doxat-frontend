@@ -5,6 +5,7 @@ const SiteContext = createContext();
 const SiteProvider = ({ children }) => {
 
   const [pageTranslate, setPageTranslate] = useState('0vh');
+  const [pageTranslateSecond, setPageTranslateSecond] = useState("0vh");
   const [carouselState, mutateCarousel] = useState(true);
 
   const [category, setCategory] = useState("svi");
@@ -16,7 +17,8 @@ const SiteProvider = ({ children }) => {
         setPageTranslate,
         carouselState,
         mutateCarousel,
-
+        pageTranslateSecond,
+        setPageTranslateSecond,
         category,
         setCategory,
       }}

@@ -39,14 +39,18 @@ function Footer() {
               <GrInstagram />
             </a>
           </Link>
-          <a>Instagram</a>
+          <Link href="https://www.instagram.com/doxat_design/">
+            <a>Instagram</a>
+          </Link>
           <br />
           <Link href="https://www.facebook.com/studiodoxat">
             <a className="gerade">
               <GrFacebook />
             </a>
           </Link>
-          <a>Facebook</a>
+          <Link href="https://www.facebook.com/studiodoxat">
+            <a>Facebook</a>
+          </Link>
         </div>
         <div>
           <address>

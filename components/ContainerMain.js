@@ -9,6 +9,7 @@ function ContainerMain({children}) {
 
     const { carouselState } = useContext(SiteContext);
     const { pageTranslate } = useContext(SiteContext);
+    const { pageTranslateSecond } = useContext(SiteContext);
 
     const onlyThisPageTranslate = pageTranslate;
 
