@@ -53,13 +53,17 @@ function Footer() {
           </Link>
         </div>
         <div>
-          <address>
-            Fadil-Paše Šerifovića 6b,
-            <br />
-            Sarajevo 71000,
-            <br />
-            {t.country}
-          </address>
+          <Link href="https://goo.gl/maps/5ZQ79TchgHW8a8N58">
+            <a>
+              <address>
+                Fadil-Paše Šerifovića 6b,
+                <br />
+                Sarajevo 71000,
+                <br />
+                {t.country}
+              </address>
+            </a>
+          </Link>
         </div>
         <div>
           <strong>T</strong>
@@ -72,7 +76,9 @@ function Footer() {
           <br />
           <strong>E</strong>
           &nbsp;
-          <a href="mailto:doxat@bih.net.ba">doxat@bih.net.ba</a>
+          <Link href="mailto:doxat@bih.net.ba">
+            <a>doxat@bih.net.ba</a>
+          </Link>
           <br />
         </div>
       </footer>
@@ -131,6 +137,10 @@ const FooterStyled = styled.div`
   }
   footer strong {
     color: #1c1c1b;
+  }
+
+  footer div a:hover {
+    text-decoration: underline;
   }
 
   /* Responsive */
