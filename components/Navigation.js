@@ -252,7 +252,7 @@ const MainStyled = styled.div`
     display: block;
   }
   .nav__listlogo svg {
-    /* width: 7.5rem; */
+
     height: 2.5rem;
     transition: fill 100ms ease-in;
 
@@ -336,6 +336,10 @@ const MainStyled = styled.div`
   nav{
     flex-wrap: wrap;
     margin: 14px 0 !important;
+  }
+    .nav__listlogo svg {
+      height: 2rem;
+
   }
 
   .logoLink{

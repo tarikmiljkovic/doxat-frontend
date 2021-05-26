@@ -6,21 +6,17 @@ import styled from "@emotion/styled";
 import { useContext } from "react";
 import {SiteContext} from "../contexts/SiteContext";
 import Link from 'next/link'
-import { jsx } from "@emotion/react";
+// import { jsx } from "@emotion/react";
 
 import { useRouter } from "next/router";
-
 
 function Grid({ projekti, numberOfProjects }) {
   const { carouselState } = useContext(SiteContext);
   const { category, setCategory } = useContext(SiteContext);
   const { pageTranslate, setPageTranslate } = useContext(SiteContext);
 
-
   let calculateGridRows = Math.ceil(numberOfProjects.length/3);
-
   let router = useRouter();
-
 
   return (
     <GridStyled
@@ -100,7 +96,6 @@ const GridStyled = styled.div`
     z-index: 30 !important;
     transition: all .2s ease-in-out;
     opacity: 0;
-    /* display: none; */
     transition: all .2s ease-in-out;
   }
   .items:hover img.secondary {
@@ -109,7 +104,6 @@ const GridStyled = styled.div`
     transition: all .2s ease-in-out;
   }
   .items > .bottom {
-    /* display: none; */
     font-size: 1.1rem;
   }
   .items:hover .bottom {

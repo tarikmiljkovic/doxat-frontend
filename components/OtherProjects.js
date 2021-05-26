@@ -24,12 +24,8 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
   let curr = requestJ[currentProjectIndex];
   let next = requestJ[nextProjectIndex];
 
-  console.log(prev.slike[0].formats.medium.url);
+  console.log(prev.prelazMisem.formats.medium.url);
 
-
-  // console.log(currentProjectIndex);
-  // console.log(nextProjectIndex);
-  // console.log(prevProjectIndex);
 
   return (
     <OthersStyled>
@@ -45,11 +41,7 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
           as={`/projekti/${prev.id}`}
         >
           <a className="items">
-            <img
-              src={prev.slike[0].formats.medium.url}
-              alt=""
-              className="main"
-            />
+            <img src={prev.skica.formats.medium.url} alt="" className="main" />
             <img
               src={prev.prelazMisem.formats.medium.url}
               alt=""
@@ -65,11 +57,7 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
           as={`/projekti/${curr.id}`}
         >
           <a className="items">
-            <img
-              src={curr.slike[0].formats.medium.url}
-              alt=""
-              className="main"
-            />
+            <img src={curr.skica.formats.medium.url} alt="" className="main" />
             <img
               src={curr.prelazMisem.formats.medium.url}
               alt=""
@@ -86,11 +74,7 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
           as={`/projekti/${next.id}`}
         >
           <a className="items">
-            <img
-              src={next.slike[0].formats.medium.url}
-              alt=""
-              className="main"
-            />
+            <img src={next.skica.formats.medium.url} alt="" className="main" />
             <img
               src={next.prelazMisem.formats.medium.url}
               alt=""
@@ -123,18 +107,21 @@ const OthersStyled = styled.div`
     border: 0.5px solid #c0c0c0;
   }
   .items {
-    max-height: 20rem;
+    height: 22rem !important;
     min-width: auto;
     overflow: hidden;
     object-fit: cover;
     object-position: center;
     position: relative;
+    transition: all 0.2s ease-in-out;
   }
   .items img {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
     object-position: center;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 10;
+    transition: all 0.2s ease-in-out;
   }
   .items img.hover {
     position: absolute;
@@ -144,25 +131,28 @@ const OthersStyled = styled.div`
     bottom: 0;
     object-fit: cover;
     opacity: 0;
-
-    /* transition: opacity 0.01s; */
   }
   .items:hover img.hover {
     opacity: 1;
   }
+  .items > .bottom {
+    font-size: 1.1rem;
+  }
 
   .items .hover .bottom {
-    display: none;
+    /* display: none; */
   }
-  .items:hover div.bottom {
+  .items:hover .bottom {
+    display: block !important;
     position: absolute;
-    display: block;
+    z-index: 50;
     bottom: 0;
     left: 0;
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
     color: white;
+    transition: all 0.2s ease-in-out;
 
     @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
       -webkit-backdrop-filter: blur(10px);

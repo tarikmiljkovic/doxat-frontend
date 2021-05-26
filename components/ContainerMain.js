@@ -39,7 +39,7 @@ const ContainerMainStyled = styled.div`
   overflow: hidden !important;
 
   @media only screen and (max-width: 600px) {
-    padding: 0 1.25rem;
+    padding: 0 0.625em;
   }
 `;
 

@@ -5,6 +5,8 @@ import Footer from "../../components/Footer";
 import ContainerBody from "../../components/ContainerBody";
 import OtherProjects from "../../components/OtherProjects";
 import ContainerMain from "../../components/ContainerMain";
+import Image from "../../components/Image";
+
 import Link from 'next/link'
 
 // import { useContext } from "react";
@@ -70,15 +72,19 @@ export default function Projekt({
             <div>
               <div>
                 {result.slike.map((slika, index) => (
-                  <img
-                    src={slika.formats.medium.url}
-                    alt="doxat sarajevo"
+                  <Image
                     key={index}
+                    src={slika.formats.medium.url}
+                    caption={slika.caption}
                   />
+                  // <div key={index} className="items">
+                  //   <img src={slika.formats.medium.url} alt="doxat sarajevo" />
+                  //   <div className="bottom">{slika.caption}</div>
+                  // </div>
                 ))}
               </div>
             </div>
-
+            {/* */}
             <div
               dangerouslySetInnerHTML={{
                 __html: result.opis,
@@ -86,20 +92,22 @@ export default function Projekt({
             ></div>
             <div>
               {result.plan.map((slika, index) => (
-                <img
-                  src={slika.url}
-                  alt="doxat"
+                <Image
                   key={index}
+                  src={slika.url}
+                  caption={slika.caption}
                 />
+                // <div key={index} className="items">
+                //   <img src={slika.url} alt="doxat" />
+                //   <div className="bottom">{slika.caption}</div>
+                // </div>
               ))}
             </div>
           </ContainerBody>
 
           {otherProjects()}
 
-
-          <div>
-          </div>
+          <div></div>
           <Footer />
         </ContainerMain>
       </Wrapper>

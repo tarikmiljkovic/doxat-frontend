@@ -9,6 +9,16 @@ require("dotenv").config();
 module.exports = {
   // rewrites: async () => nextI18NextRewrites(localeSubpaths),
 
+   title: 'Doxat',
+        description: 'Doxat Studio Sarajevo',
+        openGraph: {
+            type: 'website',
+            url: 'My URL',
+            title: 'MyTitle',
+            description: 'My description',
+            image: '...jpg',
+        },
+
   env: {
     API_URL: process.env.API_URL,
     // IMAGES_DOMAIN: process.env.IMAGES_DOMAIN,
