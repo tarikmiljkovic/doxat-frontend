@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+const { API_URL } = process.env;
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -34,7 +35,7 @@ class MyDocument extends Document {
             property="og:description"
             content="Doxat Arhitektonski Studio"
           />
-          <meta property="og:image" content="./logo.svg" />
+          <meta property="og:image" content="../public/logo.svg" />
           <meta property="og:url" content="http://doxat.ba" />
 
           <link rel="icon" href="favicon.ico" />
