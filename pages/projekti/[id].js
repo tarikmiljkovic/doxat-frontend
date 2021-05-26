@@ -24,6 +24,9 @@ export default function Projekt({
   // let router = useRouter();
   // const { carouselState, mutateCarousel } = useContext(SiteContext);
 
+  var sl = result.plan;
+  console.log(sl);
+
 
   function countIndex(index) {
     if (index == 0) {
@@ -68,7 +71,7 @@ export default function Projekt({
               <div>
                 {result.slike.map((slika, index) => (
                   <img
-                    src={slika.url}
+                    src={slika.formats.medium.url}
                     alt="doxat sarajevo"
                     key={index}
                   />
