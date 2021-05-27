@@ -244,18 +244,14 @@ const MainStyled = styled.div`
     margin-right: auto;
     cursor: pointer;
     padding-top: 24px;
-
-
   }
   .logoLink{
     height: auto;
     display: block;
   }
   .nav__listlogo svg {
-
     height: 2.5rem;
     transition: fill 100ms ease-in;
-
   }
   .nav__listlogo svg:hover,
   .nav__listlogo svg:focus {
@@ -335,6 +331,10 @@ const MainStyled = styled.div`
 @media only screen and (max-width: 600px) {
 
 
+.nav__listitemdrop:hover{
+  opacity: 1;
+}
+
   .nav__listitem{
     padding: 0;
     margin: 0;
@@ -365,6 +365,14 @@ const MainStyled = styled.div`
     margin-bottom: 10px;
     /* margin-left: 0.7rem; */
 
+  }
+  .nav__listitem:hover{
+           text-stroke: 0.044rem black;
+      -webkit-text-stroke: 0.044rem black;
+  }
+  .nav__listitemdrop a:hover{
+       text-stroke: 0.044rem black;
+      -webkit-text-stroke: 0.044rem black;
   }
   .nav__listitemdrop a:first-of-type{
     margin-top: 20px;
