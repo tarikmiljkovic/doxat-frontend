@@ -18,6 +18,10 @@ function Grid({ projekti, numberOfProjects }) {
   let calculateGridRows = Math.ceil(numberOfProjects.length/3);
   let router = useRouter();
 
+  numberOfProjects = 0;
+
+  projekti.filter((data) => {numberOfProjects++});
+
   return (
     <GridStyled
       carouselState={carouselState}
