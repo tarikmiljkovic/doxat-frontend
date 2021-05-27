@@ -30,11 +30,6 @@ function Main({ requestJ, currentProjectIndex }) {
 
   };
 
-
-
-  // const [startIcon, changeIcon] = useState(true);
-  // const { navIcon, changeNavIcon } = useState(`<RiMenuLine/>`);
-
   let router = useRouter();
 
   const { locale } = router;
@@ -350,12 +345,10 @@ const MainStyled = styled.div`
     left: 0;
     width: 100% !important;
     flex-direction: column;
-    /* flex: 1 1 auto; */
     color: black;
     opacity: 1;
     gap: 0;
     visibility: visible;
-    /* gap: 0.7rem; */
 
   }
   .nav__listitemdrop a{
@@ -363,35 +356,28 @@ const MainStyled = styled.div`
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* margin-left: 0.7rem; */
-
   }
   .nav__listitem:hover{
-           text-stroke: 0.044rem black;
-      -webkit-text-stroke: 0.044rem black;
+    text-stroke: 0.044rem black;
+    -webkit-text-stroke: 0.044rem black;
   }
   .nav__listitemdrop a:hover{
-       text-stroke: 0.044rem black;
-      -webkit-text-stroke: 0.044rem black;
+  text-stroke: 0.044rem black;
+  -webkit-text-stroke: 0.044rem black;
   }
   .nav__listitemdrop a:first-of-type{
     margin-top: 20px;
   }
   .nav__listitemdrop a:last-of-type{
-
     margin-bottom: 0;
-
   }
   nav{
     flex-wrap: wrap;
     margin: 14px 0 !important;
   }
-    .nav__listlogo svg {
-      height: 2rem;
-
+  .nav__listlogo svg {
+    height: 2rem;
   }
-
-
 
   .logoLink{
     height: 2.2rem;
@@ -408,10 +394,6 @@ const MainStyled = styled.div`
     gap: 0;
   }
 
-
- /* .nav__listitem:first-of-type{
-    padding: 3rem 0 !important;
-  } */
 
   /*  */
   .nav__listlogo{
@@ -446,11 +428,7 @@ const MainStyled = styled.div`
   .nav__listitem:focus::after {
     width: 0;
   }
-  .nav__listitem:hover ul,
-  .nav__listitem:focus ul {
-    opacity: 0;
 
-  }
 }
 
 `;
