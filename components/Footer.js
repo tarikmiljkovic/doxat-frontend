@@ -28,12 +28,12 @@ function Footer() {
   return (
     <FooterStyled carouselState={carouselState}>
       <footer>
-        <div>
+        <div className="space">
           <p>
             <b>doxat</b> {t.ltd}
           </p>
         </div>
-        <div>
+        <div className="space">
           <Link href="https://www.instagram.com/doxat_design/">
             <a className="gerade">
               <GrInstagram />
@@ -52,7 +52,7 @@ function Footer() {
             <a>Facebook</a>
           </Link>
         </div>
-        <div>
+        <div className="space">
           <Link href="https://goo.gl/maps/5ZQ79TchgHW8a8N58">
             <a>
               <address>
@@ -65,7 +65,7 @@ function Footer() {
             </a>
           </Link>
         </div>
-        <div>
+        <div className="space">
           <strong>T</strong>
           &nbsp;
           <a href="tel:+0038733239918">+387 33 239 - 918</a>
@@ -95,6 +95,9 @@ const FooterStyled = styled.div`
     padding: 20px 0;
     flex-wrap: wrap;
     font-size: 1rem;
+  }
+  .space {
+    padding: 0.625rem 0;
   }
 
   .gerade {
