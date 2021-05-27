@@ -333,6 +333,47 @@ const MainStyled = styled.div`
   }
 
 @media only screen and (max-width: 600px) {
+
+
+  .nav__listitem{
+    padding: 0;
+    margin: 0;
+
+    margin: 10px 0 !important;
+
+  }
+
+  .nav__listitemdrop{
+    position: relative;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    flex-direction: column;
+    /* flex: 1 1 auto; */
+    color: black;
+    opacity: 1;
+    gap: 0;
+    visibility: visible;
+    /* gap: 0.7rem; */
+
+  }
+  .nav__listitemdrop a{
+    width: 100% !important;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* margin-left: 0.7rem; */
+
+  }
+  .nav__listitemdrop a:first-of-type{
+    margin-top: 20px;
+  }
+  .nav__listitemdrop a:last-of-type{
+
+    margin-bottom: 0;
+
+  }
   nav{
     flex-wrap: wrap;
     margin: 14px 0 !important;
@@ -341,6 +382,8 @@ const MainStyled = styled.div`
       height: 2rem;
 
   }
+
+
 
   .logoLink{
     height: 2.2rem;
@@ -355,13 +398,9 @@ const MainStyled = styled.div`
     justify-content: flex-end;
     align-content: center;
     gap: 0;
-
-
   }
 
-  .nav__listitem{
-    margin: 0.7rem 0 !important;
-  }
+
  /* .nav__listitem:first-of-type{
     padding: 3rem 0 !important;
   } */

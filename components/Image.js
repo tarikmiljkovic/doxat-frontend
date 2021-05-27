@@ -8,7 +8,7 @@ export default function Image({ src, caption, key }) {
     <ImageStyled key={key} className="">
       <div className="subgrid">
         <img src={src} alt="doxat sarajevo" />
-        { caption ? <div className="bottom">{caption}</div> : ''}
+        { caption ? <p className="bottom">{caption}</p> : ''}
       </div>
     </ImageStyled>
   );
@@ -34,27 +34,19 @@ const ImageStyled = styled.div`
   }
   .bottom {
     display: block !important;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    opacity: 1;
+    /* position: absolute; */
+    /* bottom: 0;
+    left: 0; */
     width: 100%;
     box-sizing: border-box;
-    padding: 10px;
-    color: white;
+    padding-top: 10px;
+
     transition: all 0.2s ease-in-out;
-    opacity: 0;
-    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
-    @supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-  }
-  .subgrid:hover .bottom {
     z-index: 50;
-    opacity: 1;
+    color: black;
   }
+
 
   @media only screen and (min-width: 600px) {
     .subgrid {
