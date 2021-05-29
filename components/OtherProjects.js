@@ -27,6 +27,52 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
   console.log(prev.prelazMisem.formats.medium.url);
 
 
+
+  function NextProject(){
+    return (
+      <Link
+        key={nextProjectIndex + 110}
+        className="relative"
+        href={`/projekti/${typeof next.id !== undefined ? next.id : ""}`}
+        as={`/projekti/${typeof next.id !== undefined ? next.id : ""}`}
+      >
+        <a className="items">
+          <img src={next.skica.formats.medium.url} alt="" className="main" />
+          <img
+            src={next.prelazMisem.formats.medium.url}
+            alt=""
+            className="hover"
+          />
+          <div className="bottom">
+            {typeof next.naziv !== undefined ? next.naziv : ""}
+          </div>
+        </a>
+      </Link>
+    );
+  }
+
+
+  function Next(props) {
+    // const nextExists = props.isLoggedIn;
+
+    const nextExists = typeof next === 'undefined' ? '' : <NextProject/>;
+    return nextExists;
+
+    // if (isLoggedIn) {
+    //   return <UserGreeting />;
+    // }
+    // return <GuestGreeting />;
+  }
+
+
+
+
+
+
+
+
+
+
   return (
     <OthersStyled>
       <div className="heading">
@@ -67,11 +113,13 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
             <div className="bottom">{curr.naziv}</div>
           </a>
         </Link>
-        <Link
+
+        <Next />
+        {/* <Link
           key={nextProjectIndex + 110}
           className="relative"
-          href={`/projekti/${next.id}`}
-          as={`/projekti/${next.id}`}
+          href={`/projekti/${typeof next.id !== undefined ? next.id : ""}`}
+          as={`/projekti/${typeof next.id !== undefined ? next.id : ""}`}
         >
           <a className="items">
             <img src={next.skica.formats.medium.url} alt="" className="main" />
@@ -80,9 +128,11 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
               alt=""
               className="hover"
             />
-            <div className="bottom">{next.naziv}</div>
+            <div className="bottom">
+              {typeof next.naziv !== undefined ? next.naziv : ""}
+            </div>
           </a>
-        </Link>
+        </Link> */}
       </div>
     </OthersStyled>
   );
