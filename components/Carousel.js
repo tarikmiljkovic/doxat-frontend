@@ -20,64 +20,59 @@ import { transparentize } from 'polished';
 
 
 
-function Carousel() {
-
+function Carousel({ homeGallery }) {
   let router = useRouter();
 
-
+  const galleryImages = homeGallery[0].slika;
 
   const { carouselState } = useContext(SiteContext);
   // console.log(carouselState);
-    // const [prev, setPrev] = useState(0);
-    // const [next, setNext] = useState(0);
-    // const imagesNode = useRef();
+  // const [prev, setPrev] = useState(0);
+  // const [next, setNext] = useState(0);
+  // const imagesNode = useRef();
 
-   const slideImages = [
-     "images/doxat-1.jpg",
-     "images/doxat-2.jpg",
-     "images/doxat-3.jpg",
-   ];
+  // const slideImages = [
+  //   "images/doxat-1.jpg",
+  //   "images/doxat-2.jpg",
+  //   "images/doxat-3.jpg",
+  // ];
 
-     const properties = {
-       duration: 5000,
-       transitionDuration: 500,
-       easing: "ease-out",
-       infinite: true,
-       prevArrow: (
-         <MdChevronLeft
-           style={{
-             width: "5rem",
-             height: "5rem",
-             marginRight: "-5rem",
-             fill: "white",
-             position: "absolute",
-             background: "transparent",
-             left: "2rem",
-           }}
-           className="prevnext"
-         />
-       ),
-       nextArrow: (
-         <MdChevronRight
-           style={{
-             width: "5rem",
-             height: "5rem",
-             marginLeft: "-5rem",
-             fill: "white",
-             position: "absolute",
-             background: "transparent",
-             right: "2rem",
-           }}
-           className="prevnext"
-         />
-       ),
-     };
+  const properties = {
+    duration: 5000,
+    transitionDuration: 500,
+    easing: "ease-out",
+    infinite: true,
+    prevArrow: (
+      <MdChevronLeft
+        style={{
+          width: "5rem",
+          height: "5rem",
+          marginRight: "-5rem",
+          fill: "white",
+          position: "absolute",
+          background: "transparent",
+          left: "2rem",
+        }}
+        className="prevnext"
+      />
+    ),
+    nextArrow: (
+      <MdChevronRight
+        style={{
+          width: "5rem",
+          height: "5rem",
+          marginLeft: "-5rem",
+          fill: "white",
+          position: "absolute",
+          background: "transparent",
+          right: "2rem",
+        }}
+        className="prevnext"
+      />
+    ),
+  };
 
-  useEffect(() => {
-
-
-
-  },[]);
+  useEffect(() => {}, []);
 
   return (
     <CarouselStyled carouselState={carouselState}>
@@ -91,7 +86,16 @@ function Carousel() {
         </div>
 
         <Slide {...properties} style={{ height: "100vh", width: "100%" }}>
-          <div className="each-slide">
+          {galleryImages.map((image, index) => (
+
+            <div className="each-slide">
+            <div style={{ backgroundImage: `url(${image.url})` }}></div>
+          </div>
+
+
+          ))}
+
+          {/* <div className="each-slide">
             <div style={{ backgroundImage: `url(${slideImages[0]})` }}></div>
           </div>
           <div className="each-slide">
@@ -99,7 +103,7 @@ function Carousel() {
           </div>
           <div className="each-slide">
             <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
-          </div>
+          </div> */}
         </Slide>
       </div>
 

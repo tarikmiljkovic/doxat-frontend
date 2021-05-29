@@ -14,7 +14,7 @@ import { SiteContext } from "../contexts/SiteContext";
 import { useRouter } from "next/router";
 import styled from "@emotion/styled";
 
-export default function Home({ projekti, numberOfProjects }) {
+export default function Home({ projekti, numberOfProjects, homeGallery }) {
   let router = useRouter();
 
   const { carouselState } = useContext(SiteContext);
@@ -22,7 +22,7 @@ export default function Home({ projekti, numberOfProjects }) {
 
   return (
     <IndexStyled carouselState={carouselState} pageTranslate={pageTranslate}>
-      <Carousel />
+      <Carousel homeGallery={homeGallery} />
       <TranslateDown />
       <ContainerMain>
         <Navigation />
@@ -51,15 +51,18 @@ export async function getStaticProps(context) {
 
     const countProjects = await fetch(
       context.locale == "bs"
-        ? `${API_URL}/Projektis?_sort=published_at:DESC`
-        : `${API_URL}/Projektis?_sort=published_at:DESC&_locale=en`
+        ? `${API_URL}/Projektis/count`
+        : `${API_URL}/Projektis/count?_locale=en`
     );
     const numberOfProjects = await countProjects.json();
 
 
+    const fetchHomeGallery = await fetch(`${API_URL}/pocetna-galerijas`);
+    const homeGallery = await fetchHomeGallery.json();
+
   return {
-    props: { projekti, numberOfProjects },
-    revalidate: 1
+    props: { projekti, numberOfProjects, homeGallery },
+    revalidate: 1,
   };
 }
 
