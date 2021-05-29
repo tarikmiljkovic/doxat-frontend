@@ -60,7 +60,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: { projekti, numberOfProjects },
-    // revalidate: 1
+    revalidate: 1
   };
 }
 
