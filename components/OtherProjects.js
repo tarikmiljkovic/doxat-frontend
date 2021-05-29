@@ -28,7 +28,7 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
 
 
 
-  function NextProject(){
+  function ProjectCard({ order }) {
     return (
       <Link
         key={nextProjectIndex + 110}
@@ -55,14 +55,30 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
   function Next(props) {
     // const nextExists = props.isLoggedIn;
 
-    const nextExists = typeof next === 'undefined' ? '' : <NextProject/>;
+    const nextExists =
+      typeof next === "undefined" ? "" : <ProjectCard order={next} />;
     return nextExists;
-
     // if (isLoggedIn) {
     //   return <UserGreeting />;
     // }
     // return <GuestGreeting />;
   }
+
+
+    function Prev(props) {
+
+      const nextExists =
+        typeof next === "undefined" ? "" : <ProjectCard order={prev} />;
+      return nextExists;
+    }
+
+        function Curr(props) {
+          const nextExists =
+            typeof next === "undefined" ? "" : <ProjectCard order={curr} />;
+          return nextExists;
+        }
+
+
 
 
 
@@ -80,39 +96,8 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
         <h4>Ostali projekti</h4>
       </div>
       <div className="grid-container">
-        <Link
-          key={prevProjectIndex + 120}
-          className="relative"
-          href={`/projekti/${prev.id}`}
-          as={`/projekti/${prev.id}`}
-        >
-          <a className="items">
-            <img src={prev.skica.formats.medium.url} alt="" className="main" />
-            <img
-              src={prev.prelazMisem.formats.medium.url}
-              alt=""
-              className="hover"
-            />
-            <div className="bottom">{prev.naziv}</div>
-          </a>
-        </Link>
-        <Link
-          key={prevProjectIndex + 100}
-          className="relative"
-          href={`/projekti/${curr.id}`}
-          as={`/projekti/${curr.id}`}
-        >
-          <a className="items">
-            <img src={curr.skica.formats.medium.url} alt="" className="main" />
-            <img
-              src={curr.prelazMisem.formats.medium.url}
-              alt=""
-              className="hover"
-            />
-
-            <div className="bottom">{curr.naziv}</div>
-          </a>
-        </Link>
+        <Prev />
+        <Curr />
 
         <Next />
         {/* <Link
