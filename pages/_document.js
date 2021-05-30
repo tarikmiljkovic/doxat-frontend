@@ -11,7 +11,10 @@ class MyDocument extends Document {
         <Head>
           <title>Doxat</title>
 
-          <meta name="description" content="Doxat Arhitektonski Studio" />
+          <meta
+            name="description"
+            content="Doxat Arhitektonski Studio Sarajevo"
+          />
           <meta name="author" content="Tarik Miljkovic" />
 
           <meta property="og:url" content="https://doxat.ba" />
@@ -33,7 +36,7 @@ class MyDocument extends Document {
             property="og:description"
             content="Doxat Arhitektonski Studio"
           />
-          <meta property="og:image" content="../public/logo.png" />
+          <meta property="og:image" content="./logo.svg" key="ogimage" />
           <meta property="og:url" content="http://doxat.ba" />
 
           <link rel="icon" href="favicon.ico" />
