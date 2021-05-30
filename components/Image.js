@@ -25,6 +25,7 @@ const ImageStyled = styled.div`
 
   .subgrid img {
     width: 100% !important;
+    /* height: 100% !important; */
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -47,9 +48,9 @@ const ImageStyled = styled.div`
     color: black;
   }
 
-
   @media only screen and (min-width: 600px) {
     .subgrid {
+      /* margin-bottom: 1.875rem; */
       margin-bottom: 1.875rem;
     }
   }
