@@ -40,7 +40,7 @@ const IndexStyled = styled.div`
   overflow: ${(props) => (props.carouselState ? "hidden" : "visible")};
 `;
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
   const res = await fetch(
     context.locale == "bs"
@@ -62,7 +62,7 @@ export async function getStaticProps(context) {
 
   return {
     props: { projekti, numberOfProjects, homeGallery },
-    revalidate: 1,
+    // revalidate: 1,
   };
 }
 
