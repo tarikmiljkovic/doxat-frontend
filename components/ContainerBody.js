@@ -37,6 +37,9 @@ const ContainerBodyStyled = styled.div`
       "second";
   }
 
+.second > div > :first-child{
+  margin-top: 0 !important;
+}
   .first {
     display: flex;
     flex-direction: column;
