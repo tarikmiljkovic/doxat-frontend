@@ -33,10 +33,13 @@ function Grid({ projekti, numberOfProjects }) {
         {projekti
           .filter((data) => {
             if (category == "svi") {
+              console.log(data);
               return data;
             } else if (category == "ideja" && data.faza == category) {
+              console.log(data);
               return data;
             } else if (category == "izvedeno" && data.faza == category) {
+              console.log(data);
               return data;
             }
           })

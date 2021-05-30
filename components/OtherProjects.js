@@ -37,9 +37,9 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
         as={`/projekti/${typeof next.id !== undefined ? next.id : ""}`}
       >
         <a className="items">
-          <img src={next.skica.formats.medium.url} alt="" className="main" />
+          <img src={next.skica.url} alt="" className="main" />
           <img
-            src={next.prelazMisem.formats.medium.url}
+            src={next.prelazMisem.url}
             alt=""
             className="hover"
           />
