@@ -24,7 +24,7 @@ function OtherProjects({ requestJ, currentProjectIndex,nextProjectIndex, prevPro
   let curr = requestJ[currentProjectIndex];
   let next = requestJ[nextProjectIndex];
 
-  console.log(prev.prelazMisem.formats.medium.url);
+
 
 
 
