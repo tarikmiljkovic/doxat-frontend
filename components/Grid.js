@@ -50,8 +50,8 @@ function Grid({ projekti, numberOfProjects }) {
               as={`/projekti/${projekt.id}`}
             >
               <a className="items" onClick={() => setPageTranslate("0vh")}>
-                <img src={projekt.skica.formats.medium.url} alt="" className="primary"/>
-                <img src={projekt.prelazMisem.formats.medium.url} alt="" className="secondary" />
+                <img src={projekt.skica.url} alt="" className="primary"/>
+                <img src={projekt.prelazMisem.url} alt="" className="secondary" />
                 <div className="bottom">{projekt.naziv}</div>
               </a>
             </Link>
