@@ -36,6 +36,8 @@ export async function getStaticProps(context) {
   );
   const projekti = await res.json();
 
+
+
   const countProjects = await fetch(
     context.locale == "bs"
       ? `${API_URL}/Projektis?_sort=published_at:DESC`

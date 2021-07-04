@@ -20,7 +20,9 @@ function Grid({ projekti, numberOfProjects }) {
 
   numberOfProjects = 0;
 
-  projekti.filter((data) => {numberOfProjects++});
+  console.log(category);
+
+  // projekti.filter((data) => {numberOfProjects++});
 
   return (
     <GridStyled

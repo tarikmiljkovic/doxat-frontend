@@ -118,10 +118,10 @@ function Main({ requestJ, currentProjectIndex }) {
                   <a onClick={() => setCategory("svi")}>Svi</a>
                 </Link>
                 <Link href="/projekti" locale={router.locale}>
-                  <a onClick={() => setCategory("ideja")}>Izvedeno</a>
+                  <a onClick={() => setCategory("izvedeno")}>Izvedeno</a>
                 </Link>
                 <Link href="/projekti" locale={router.locale}>
-                  <a onClick={() => setCategory("izvedeno")}>Ideja</a>
+                  <a onClick={() => setCategory("ideja")}>Ideja</a>
                 </Link>
               </ul>
             </li>
